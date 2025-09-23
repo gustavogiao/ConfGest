@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class User extends Authenticatable
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'firstname', 'lastname', 'username', 'user_type_id',
+        'email', 'password', 'description', 'last_login', 'is_active'
+    ];
+
+    protected $hidden = ['password'];
+
+    public function type()
+    {
+        return $this->belongsTo(UserType::class, 'user_type_id');
+    }
+
+    public function conferences()
+    {
+        return $this->belongsToMany(Conference::class, 'conf_participants', 'participant_id', 'conference_id')
+            ->withTimestamps()
+            ->withPivot('registration_date');
+    }
+}
+
