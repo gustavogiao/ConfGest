@@ -8,10 +8,9 @@
             <!-- Botões -->
             <div class="flex gap-3">
                 <!-- Back -->
-                <a href="{{ route('conference.index') }}" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition">
-                    <i class="fa-solid fa-arrow-left"></i> Voltar
+                <a href="{{ url()->previous()  }}" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+                    <i class="fa-solid fa-arrow-left"></i> Back
                 </a>
-
                 @auth
                     @php
                         $isRegistered = $conference->participants->contains(auth()->id());
@@ -19,19 +18,19 @@
 
                     @if($isRegistered)
                         <!-- Cancelar inscrição -->
-                        <form method="POST">
+                        <form method="POST" action="{{ route('conference.unregister', $conference) }}">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
-                                <i class="fa-solid fa-user-plus"></i> Inscrever-me
+                            <button type="submit" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
+                                <i class="fa-solid fa-user-minus"></i> Unsubscribe
                             </button>
                         </form>
                     @else
                         <!-- Inscrever -->
-                        <form method="POST">
+                        <form method="POST" action="{{ route('conference.register', $conference) }}">
                             @csrf
-                            <button type="submit" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
-                                <i class="fa-solid fa-user-minus"></i> Cancelar Inscrição
+                            <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+                                <i class="fa-solid fa-user-plus"></i> Subscribe
                             </button>
                         </form>
                     @endif
@@ -46,17 +45,17 @@
             <!-- Info Geral -->
             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6">
                 <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">
-                    <i class="fa-solid fa-circle-info text-indigo-500 mr-2"></i> Informações
+                    <i class="fa-solid fa-circle-info text-indigo-500 mr-2"></i> General Information
                 </h3>
-                <p class="text-gray-700 dark:text-gray-300"><strong>Local:</strong> {{ $conference->location }}</p>
-                <p class="text-gray-700 dark:text-gray-300"><strong>Data:</strong> {{ $conference->conference_date->format('d/m/Y') }}</p>
+                <p class="text-gray-700 dark:text-gray-300"><strong>Location:</strong> {{ $conference->location }}</p>
+                <p class="text-gray-700 dark:text-gray-300"><strong>Date:</strong> {{ $conference->conference_date->format('d/m/Y') }}</p>
                 <p class="mt-3 text-gray-600 dark:text-gray-400">{{ $conference->description }}</p>
             </div>
 
             <!-- Oradores -->
             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6">
                 <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">
-                    <i class="fa-solid fa-microphone-lines text-indigo-500 mr-2"></i> Oradores
+                    <i class="fa-solid fa-microphone-lines text-indigo-500 mr-2"></i> Speakers
                 </h3>
                 @if($conference->speakers->count())
                     <div class="grid gap-4 md:grid-cols-2">
@@ -72,7 +71,7 @@
                         @endforeach
                     </div>
                 @else
-                    <p class="text-gray-500 dark:text-gray-400">Nenhum orador associado.</p>
+                    <p class="text-gray-500 dark:text-gray-400">No associated speakers.</p>
                 @endif
             </div>
 
@@ -90,14 +89,14 @@
                         @endforeach
                     </div>
                 @else
-                    <p class="text-gray-500 dark:text-gray-400">Nenhum sponsor associado.</p>
+                    <p class="text-gray-500 dark:text-gray-400">No associated sponsors</p>
                 @endif
             </div>
 
             <!-- Participantes -->
             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6">
                 <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">
-                    <i class="fa-solid fa-users text-indigo-500 mr-2"></i> Participantes
+                    <i class="fa-solid fa-users text-indigo-500 mr-2"></i> Participants
                 </h3>
                 @if($conference->participants->count())
                     <ul class="grid gap-2 sm:grid-cols-2 md:grid-cols-3">
@@ -109,7 +108,7 @@
                         @endforeach
                     </ul>
                 @else
-                    <p class="text-gray-500 dark:text-gray-400">Nenhum participante inscrito ainda.</p>
+                    <p class="text-gray-500 dark:text-gray-400">No participants registered yet.</p>
                 @endif
             </div>
 
