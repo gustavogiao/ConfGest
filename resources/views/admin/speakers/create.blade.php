@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-2xl text-indigo-600 dark:text-indigo-400 leading-tight">
-            ➕ Criar Novo Orador
+        <h2 class="text-xl text-indigo-600 dark:text-indigo-400 leading-tight">
+            <i class="fas fa-plus-circle"></i> Create Speaker
         </h2>
     </x-slot>
 

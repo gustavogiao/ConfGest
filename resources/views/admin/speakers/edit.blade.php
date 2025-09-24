@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-2xl text-indigo-600 dark:text-indigo-400 leading-tight">
-            <i class="fas fa-edit"></i> Editar Orador: {{ $speaker->name }}
+        <h2 class="text-xl text-indigo-600 dark:text-indigo-400 leading-tight">
+            <i class="fas fa-edit"></i> Edit Speaker: {{ $speaker->name }}
         </h2>
     </x-slot>
 

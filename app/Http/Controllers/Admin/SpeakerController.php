@@ -85,6 +85,11 @@ class SpeakerController extends Controller
      */
     public function destroy(Speaker $speaker)
     {
+        // Delete photo if exists
+        if ($speaker->photo) {
+            \Storage::disk('public')->delete($speaker->photo);
+        }
+
         $speaker->delete();
         return redirect()->route('admin.speakers.index')
             ->with('success', 'Speaker deleted successfully.');

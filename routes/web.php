@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\SpeakerController;
+use App\Http\Controllers\Admin\SponsorController;
 use App\Http\Controllers\ConferenceController;
 use App\Http\Controllers\MyConferenceController;
 use App\Http\Controllers\ProfileController;
@@ -40,6 +41,7 @@ Route::middleware(['auth', 'admin'])
     ->name('admin.')
     ->group(function () {
         Route::resource('speakers', SpeakerController::class);
+        Route::resource('sponsors', SponsorController::class);
     });
 
 require __DIR__.'/auth.php';
