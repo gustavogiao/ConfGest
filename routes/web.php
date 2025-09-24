@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\SpeakerController;
 use App\Http\Controllers\ConferenceController;
 use App\Http\Controllers\MyConferenceController;
 use App\Http\Controllers\ProfileController;
@@ -33,5 +34,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/my-conferences', [MyConferenceController::class, 'index'])
         ->name('my.conferences');
 });
+
+Route::middleware(['auth', 'admin'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+        Route::resource('speakers', SpeakerController::class);
+    });
 
 require __DIR__.'/auth.php';

@@ -15,10 +15,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserTypeSeeder::class,
             SpeakerTypeSeeder::class,
+            UserSeeder::class,
         ]);
 
-        // Criar entidades base
-        User::factory(10)->create();
+        // Cria entidades com factories
         Conference::factory(5)->create();
         Speaker::factory(8)->create();
         Sponsor::factory(6)->create();
