@@ -1,6 +1,11 @@
 <?php
 
 use App\Models\User;
+use App\Models\UserType;
+
+beforeEach(function () {
+    UserType::factory()->create(['id' => 2]);
+});
 
 test('profile page is displayed', function () {
     $user = User::factory()->create();
@@ -18,8 +23,10 @@ test('profile information can be updated', function () {
     $response = $this
         ->actingAs($user)
         ->patch('/profile', [
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'firstname' => 'Test',
+            'lastname' => 'User',
+            'username' => 'testuser',
+            'email' => 'teste@example.com',
         ]);
 
     $response
@@ -28,18 +35,24 @@ test('profile information can be updated', function () {
 
     $user->refresh();
 
-    $this->assertSame('Test User', $user->name);
-    $this->assertSame('test@example.com', $user->email);
+    $this->assertSame('Test', $user->firstname);
+    $this->assertSame('User', $user->lastname);
+    $this->assertSame('testuser', $user->username);
+    $this->assertSame('teste@example.com', $user->email);
     $this->assertNull($user->email_verified_at);
 });
 
 test('email verification status is unchanged when the email address is unchanged', function () {
-    $user = User::factory()->create();
+    $user = User::factory()->create([
+        'email_verified_at' => now(),
+    ]);
 
     $response = $this
         ->actingAs($user)
         ->patch('/profile', [
-            'name' => 'Test User',
+            'firstname' => 'Test',
+            'lastname' => 'User',
+            'username' => 'testuser',
             'email' => $user->email,
         ]);
 

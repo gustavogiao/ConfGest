@@ -2,6 +2,11 @@
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Models\UserType;
+
+beforeEach(function () {
+    UserType::factory()->create(['id' => 2]);
+});
 
 test('password can be updated', function () {
     $user = User::factory()->create();

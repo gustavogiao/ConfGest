@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Admin\SpeakerController;
 use App\Http\Controllers\Admin\SponsorController;
-use App\Http\Controllers\ConferenceController;
+use App\Http\Controllers\Admin\ConferenceController;
 use App\Http\Controllers\MyConferenceController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegistrationController;
@@ -16,8 +16,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/', [ConferenceController::class, 'index'])->name('conference.index');
-Route::get('/conferences/{conference}', [ConferenceController::class, 'show'])->name('conference.show');
+Route::get('/', [\App\Http\Controllers\ConferenceController::class, 'index'])->name('conference.index');
+Route::get('/conferences/{conference}', [\App\Http\Controllers\ConferenceController::class, 'show'])->name('conference.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -42,6 +42,7 @@ Route::middleware(['auth', 'admin'])
     ->group(function () {
         Route::resource('speakers', SpeakerController::class);
         Route::resource('sponsors', SponsorController::class);
+        Route::resource('conferences', ConferenceController::class);
     });
 
 require __DIR__.'/auth.php';

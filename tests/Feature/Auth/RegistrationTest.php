@@ -1,4 +1,9 @@
 <?php
+use App\Models\UserType;
+
+beforeEach(function () {
+    UserType::factory()->create(['description' => 'Participant']);
+});
 
 test('registration screen can be rendered', function () {
     $response = $this->get('/register');
@@ -8,7 +13,9 @@ test('registration screen can be rendered', function () {
 
 test('new users can register', function () {
     $response = $this->post('/register', [
-        'name' => 'Test User',
+        'firstname' => 'Test',
+        'lastname' => 'User',
+        'username' => 'testuser',
         'email' => 'test@example.com',
         'password' => 'password',
         'password_confirmation' => 'password',
@@ -17,3 +24,4 @@ test('new users can register', function () {
     $this->assertAuthenticated();
     $response->assertRedirect(route('dashboard', absolute: false));
 });
+

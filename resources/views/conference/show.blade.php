@@ -14,25 +14,28 @@
                 @auth
                     @php
                         $isRegistered = $conference->participants->contains(auth()->id());
+                        $isAdmin = auth()->user()->type->description === 'Admin';
                     @endphp
 
-                    @if($isRegistered)
-                        <!-- Cancelar inscrição -->
-                        <form method="POST" action="{{ route('conference.unregister', $conference) }}">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
-                                <i class="fa-solid fa-user-minus"></i> Unsubscribe
-                            </button>
-                        </form>
-                    @else
-                        <!-- Inscrever -->
-                        <form method="POST" action="{{ route('conference.register', $conference) }}">
-                            @csrf
-                            <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
-                                <i class="fa-solid fa-user-plus"></i> Subscribe
-                            </button>
-                        </form>
+                    @if(!$isAdmin)
+                        @if($isRegistered)
+                            <!-- Cancelar inscrição -->
+                            <form method="POST" action="{{ route('conference.unregister', $conference) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
+                                    <i class="fa-solid fa-user-minus"></i> Unsubscribe
+                                </button>
+                            </form>
+                        @else
+                            <!-- Inscrever -->
+                            <form method="POST" action="{{ route('conference.register', $conference) }}">
+                                @csrf
+                                <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+                                    <i class="fa-solid fa-user-plus"></i> Subscribe
+                                </button>
+                            </form>
+                        @endif
                     @endif
                 @endauth
             </div>

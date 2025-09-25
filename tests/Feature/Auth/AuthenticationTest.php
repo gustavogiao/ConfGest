@@ -1,6 +1,11 @@
 <?php
 
 use App\Models\User;
+use App\Models\UserType;
+
+beforeEach(function () {
+    UserType::factory()->create(['id' => 2]);
+});
 
 test('login screen can be rendered', function () {
     $response = $this->get('/login');

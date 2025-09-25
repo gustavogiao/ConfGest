@@ -18,10 +18,12 @@ return new class extends Migration
             $table->string('username', 120)->unique();
             $table->foreignId('user_type_id')->constrained('user_types');
             $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->text('description')->nullable();
             $table->timestamp('last_login')->nullable();
             $table->boolean('is_active')->default(true);
+            $table->rememberToken();
             $table->timestamps(); // creationDate + changeDate
         });
     }

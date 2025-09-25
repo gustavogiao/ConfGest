@@ -3,6 +3,12 @@
 use App\Models\User;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\Facades\Notification;
+use App\Models\UserType;
+
+beforeEach(function () {
+    $GLOBALS['participantType'] = UserType::factory()->create(['description' => 'Participant']);
+});
+
 
 test('reset password link screen can be rendered', function () {
     $response = $this->get('/forgot-password');

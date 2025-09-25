@@ -84,6 +84,9 @@
             <x-responsive-nav-link :href="route('conference.index')" :active="request()->routeIs('conference.index')">
                 {{ __('Conferences') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('my.conferences')" :active="request()->routeIs('my.conferences')">
+                {{ __('My Conferences') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
