@@ -52,7 +52,7 @@
                                     @method('DELETE')
                                     <button type="submit"
                                             class="inline-flex items-center px-3 py-1 bg-red-600 text-white rounded-lg shadow hover:bg-red-700 transition-colors duration-200"
-                                            onclick="return confirm('Tens a certeza que queres apagar?')"
+                                            onclick="return confirm('Are you sure you want to delete this speaker?');"
                                             title="Apagar Orador">
                                         <i class="fas fa-trash-alt mr-1"></i> Delete
                                     </button>

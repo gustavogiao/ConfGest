@@ -23,7 +23,7 @@
                         </ul>
                     @else
                         <h3 class="text-xl font-semibold text-green-500 mb-4">
-                            <i class="fas fa-user"></i> Welcome, {{ auth()->user()->name }}!
+                            <i class="fas fa-user"></i> Welcome, {{ auth()->user()->firstname }}!
                         </h3>
                         <p>You can view and manage your conferences here:</p>
                         <a href="{{ route('my.conferences') }}" class="mt-4 inline-block px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">
