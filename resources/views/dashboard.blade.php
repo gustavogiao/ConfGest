@@ -19,7 +19,7 @@
                             <li><a href="{{ route('admin.conferences.index') }}" class="text-indigo-600 dark:text-indigo-400">Manage Conferences</a></li>
                             <li><a href="{{ route('admin.speakers.index') }}" class="text-indigo-600 dark:text-indigo-400">Manage Speakers</a></li>
                             <li><a href="{{ route('admin.sponsors.index') }}" class="text-indigo-600 dark:text-indigo-400">Manage Sponsors</a></li>
-                            <li><a href="#" class="text-indigo-600 dark:text-indigo-400">Manage User's</a></li>
+                            <li><a href="{{ route('admin.users.index') }}" class="text-indigo-600 dark:text-indigo-400">Manage User's</a></li>
                         </ul>
                     @else
                         <h3 class="text-xl font-semibold text-green-500 mb-4">

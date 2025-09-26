@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\SpeakerController;
 use App\Http\Controllers\Admin\SponsorController;
 use App\Http\Controllers\Admin\ConferenceController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\MyConferenceController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegistrationController;
@@ -43,6 +44,7 @@ Route::middleware(['auth', 'admin'])
         Route::resource('speakers', SpeakerController::class);
         Route::resource('sponsors', SponsorController::class);
         Route::resource('conferences', ConferenceController::class);
+        Route::resource('users', UserController::class);
     });
 
 require __DIR__.'/auth.php';
