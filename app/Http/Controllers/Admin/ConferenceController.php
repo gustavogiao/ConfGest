@@ -25,8 +25,8 @@ class ConferenceController extends Controller
      */
     public function create()
     {
-        $speakers = Speaker::all();
-        $sponsors = Sponsor::all();
+        $speakers = Speaker::where('is_active', true)->with('type')->get();
+        $sponsors = Sponsor::where('is_active', true)->get();
         $conference = new Conference();
         $action = route('admin.conferences.store');
 
@@ -68,8 +68,8 @@ class ConferenceController extends Controller
      */
     public function edit(Conference $conference)
     {
-        $speakers = Speaker::all();
-        $sponsors = Sponsor::all();
+        $speakers = Speaker::where('is_active', true)->with('type')->get();
+        $sponsors = Sponsor::where('is_active', true)->get();
         $action = route('admin.conferences.update', $conference);
 
         return view('admin.conferences.edit', compact('conference', 'speakers', 'sponsors', 'action'));

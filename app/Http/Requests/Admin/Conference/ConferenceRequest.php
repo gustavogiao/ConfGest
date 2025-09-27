@@ -22,7 +22,24 @@ class ConferenceRequest extends FormRequest
             'location' => ['required', 'string', 'max:255'],
             'conference_date' => ['required', 'date', 'after_or_equal:today'],
             'speakers' => ['nullable', 'array'],
-            'speakers.*' => ['exists:speakers,id'],
+            'speakers.*' => [
+                'exists:speakers,id',
+                function ($attribute, $value, $fail) use ($conferenceId) {
+                    $conferenceDate = $this->input('conference_date');
+                    $exists = \DB::table('conf_speakers')
+                        ->join('conferences', 'conferences.id', '=', 'conf_speakers.conference_id')
+                        ->where('conf_speakers.speaker_id', $value)
+                        ->where('conferences.conference_date', $conferenceDate)
+                        ->when($conferenceId, function ($query) use ($conferenceId) {
+                            $query->where('conferences.id', '!=', $conferenceId);
+                        })
+                        ->exists();
+
+                    if ($exists) {
+                        $fail('This speaker is already assigned to another conference on the same date.');
+                    }
+                }
+            ],
             'sponsors' => ['nullable', 'array'],
             'sponsors.*' => ['integer', 'exists:sponsors,id'],
         ];

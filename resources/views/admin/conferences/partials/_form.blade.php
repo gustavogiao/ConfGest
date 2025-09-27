@@ -50,15 +50,19 @@
     <!-- Speakers -->
     <div>
         <x-input-label for="speakers" value="Speakers" />
-        <select id="speakers" name="speakers[]" multiple
-                class="mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100">
+        <select id="speakers" name="speakers[]" multiple class="mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100">
             @foreach($speakers as $speaker)
                 <option value="{{ $speaker->id }}"
-                    {{ (collect(old('speakers', $conference->speakers?->pluck('id') ?? []))->contains($speaker->id)) ? 'selected' : '' }}>
+                    {{ (collect(old('speakers', $conference->speakers->pluck('id') ?? []))->contains($speaker->id)) ? 'selected' : '' }}>
                     {{ $speaker->name }}
                 </option>
             @endforeach
         </select>
+        @foreach(old('speakers', []) as $index => $speakerId)
+            @error('speakers.' . $index)
+            <div class="text-red-700">{{ $message }}</div>
+            @enderror
+        @endforeach
         <x-input-error :messages="$errors->get('speakers')" class="mt-2" />
     </div>
 

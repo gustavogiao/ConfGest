@@ -26,9 +26,12 @@
                             </li>
                         @endforeach
                     </ul>
+                    <div class="mt-6">
+                        {{ $conferences->links() }}
+                    </div>
                 @else
                     <p class="text-gray-600 dark:text-gray-300">
-                        Nenhuma conferência encontrada.
+                        No conferences available at the moment.
                     </p>
                 @endif
             </div>
