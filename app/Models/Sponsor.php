@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Sponsor extends Model
 {
@@ -32,6 +32,4 @@ class Sponsor extends Model
             ? 'text-green-600 dark:text-green-400'
             : 'text-red-600 dark:text-red-400';
     }
-
 }
-

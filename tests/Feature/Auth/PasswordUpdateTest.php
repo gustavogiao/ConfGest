@@ -1,8 +1,8 @@
 <?php
 
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 use App\Models\UserType;
+use Illuminate\Support\Facades\Hash;
 
 beforeEach(function () {
     UserType::factory()->create(['id' => 2]);

@@ -14,9 +14,8 @@ class SponsorFactory extends Factory
         return [
             'name' => $this->faker->company,
             'logo' => null,
-            'category' => $this->faker->randomElement(['Gold','Silver','Bronze']),
+            'category' => $this->faker->randomElement(['Gold', 'Silver', 'Bronze']),
             'is_active' => true,
         ];
     }
 }
-

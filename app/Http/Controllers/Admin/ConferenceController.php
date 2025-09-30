@@ -7,7 +7,6 @@ use App\Http\Requests\Admin\Conference\ConferenceRequest;
 use App\Models\Conference;
 use App\Models\Speaker;
 use App\Models\Sponsor;
-use Illuminate\Http\Request;
 
 class ConferenceController extends Controller
 {
@@ -17,6 +16,7 @@ class ConferenceController extends Controller
     public function index()
     {
         $conferences = Conference::paginate(5);
+
         return view('admin.conferences.index', compact('conferences'));
     }
 
@@ -27,12 +27,11 @@ class ConferenceController extends Controller
     {
         $speakers = Speaker::where('is_active', true)->with('type')->get();
         $sponsors = Sponsor::where('is_active', true)->get();
-        $conference = new Conference();
+        $conference = new Conference;
         $action = route('admin.conferences.store');
 
         return view('admin.conferences.create', compact('speakers', 'sponsors', 'conference', 'action'));
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -60,6 +59,7 @@ class ConferenceController extends Controller
     public function show(Conference $conference)
     {
         $conference->load(['speakers.type', 'sponsors', 'participants']);
+
         return view('conference.show', compact('conference'));
     }
 
@@ -106,6 +106,7 @@ class ConferenceController extends Controller
     public function destroy(Conference $conference)
     {
         $conference->delete();
+
         return redirect()->route('admin.conferences.index')
             ->with('success', 'Conference deleted successfully.');
     }

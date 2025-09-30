@@ -2,15 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Conference extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'acronym', 'name', 'description', 'location', 'conference_date'
+        'acronym', 'name', 'description', 'location', 'conference_date',
     ];
 
     protected $casts = [
@@ -36,4 +36,3 @@ class Conference extends Model
             ->withTimestamps();
     }
 }
-

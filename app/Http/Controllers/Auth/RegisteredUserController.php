@@ -32,23 +32,23 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'firstname' => ['required', 'string', 'max:120'],
-            'lastname'  => ['required', 'string', 'max:120'],
-            'username'  => ['required', 'string', 'max:120', 'unique:users,username'],
-            'email'     => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:users,email'],
-            'password'  => ['required', 'confirmed', Rules\Password::defaults()],
+            'lastname' => ['required', 'string', 'max:120'],
+            'username' => ['required', 'string', 'max:120', 'unique:users,username'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:users,email'],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         // por defeito todo user registado é "Participant"
         $participantType = UserType::where('description', 'Participant')->first();
 
         $user = User::create([
-            'firstname'   => $request->firstname,
-            'lastname'    => $request->lastname,
-            'username'    => $request->username,
-            'email'       => $request->email,
-            'password'    => Hash::make($request->password),
-            'user_type_id'=> $participantType->id,
-            'is_active'   => true,
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'user_type_id' => $participantType->id,
+            'is_active' => true,
         ]);
 
         event(new Registered($user));

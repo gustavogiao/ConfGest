@@ -6,7 +6,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class SponsorRequest extends FormRequest
 {
-
     public function rules(): array
     {
         return [
@@ -16,5 +15,4 @@ class SponsorRequest extends FormRequest
             'is_active' => ['required', 'boolean'],
         ];
     }
-
 }

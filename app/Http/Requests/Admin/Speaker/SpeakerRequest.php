@@ -19,5 +19,4 @@ class SpeakerRequest extends FormRequest
             'speaker_type_id' => ['required', 'exists:speaker_types,id'],
         ];
     }
-
 }

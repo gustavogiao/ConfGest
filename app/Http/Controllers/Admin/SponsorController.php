@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Actions\Sponsor\CreateSponsor;
+use App\Actions\Sponsor\DeleteSponsor;
+use App\Actions\Sponsor\UpdateSponsor;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Sponsor\SponsorRequest;
 use App\Models\Sponsor;
@@ -14,6 +17,7 @@ class SponsorController extends Controller
     public function index()
     {
         $sponsors = Sponsor::paginate(5);
+
         return view('admin.sponsors.index', compact('sponsors'));
     }
 
@@ -23,21 +27,16 @@ class SponsorController extends Controller
     public function create()
     {
         $ranks = ['Bronze', 'Prata', 'Ouro', 'Platina'];
+
         return view('admin.sponsors.create', compact('ranks'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(SponsorRequest $request)
+    public function store(SponsorRequest $request, CreateSponsor $action)
     {
-        $data = $request->validated();
-
-        if ($request->hasFile('logo')) {
-            $data['logo'] = $request->file('logo')->store('sponsors', 'public');
-        }
-
-        Sponsor::create($data);
+        $action->handle($request->validated(), $request);
 
         return redirect()->route('admin.sponsors.index')
             ->with('success', 'Sponsor created successfully.');
@@ -58,25 +57,16 @@ class SponsorController extends Controller
     public function edit(Sponsor $sponsor)
     {
         $ranks = ['Bronze', 'Prata', 'Ouro', 'Platina'];
+
         return view('admin.sponsors.edit', compact('sponsor', 'ranks'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(SponsorRequest $request, Sponsor $sponsor)
+    public function update(SponsorRequest $request, Sponsor $sponsor, UpdateSponsor $action)
     {
-        $data = $request->validated();
-
-        if ($request->hasFile('logo')) {
-            // Delete old logo if exists
-            if ($sponsor->logo) {
-                \Storage::disk('public')->delete($sponsor->logo);
-            }
-            $data['logo'] = $request->file('logo')->store('sponsors', 'public');
-        }
-
-        $sponsor->update($data);
+        $action->handle($sponsor, $request, $request->validated());
 
         return redirect()->route('admin.sponsors.index')
             ->with('success', 'Sponsor updated successfully.');
@@ -85,14 +75,10 @@ class SponsorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Sponsor $sponsor)
+    public function destroy(Sponsor $sponsor, DeleteSponsor $action)
     {
-        // Delete logo if exists
-        if ($sponsor->logo) {
-            \Storage::disk('public')->delete($sponsor->logo);
-        }
+        $action->handle($sponsor);
 
-        $sponsor->delete();
         return redirect()->route('admin.sponsors.index')
             ->with('success', 'Sponsor deleted successfully.');
     }

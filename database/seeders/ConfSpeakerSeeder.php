@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-use App\Models\Speaker;
 use App\Models\Conference;
+use App\Models\Speaker;
+use Illuminate\Database\Seeder;
 
 class ConfSpeakerSeeder extends Seeder
 {
@@ -20,5 +20,3 @@ class ConfSpeakerSeeder extends Seeder
         }
     }
 }
-
-

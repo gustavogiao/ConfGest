@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-use App\Models\Sponsor;
 use App\Models\Conference;
+use App\Models\Sponsor;
+use Illuminate\Database\Seeder;
 
 class ConfSponsorSeeder extends Seeder
 {
@@ -20,4 +20,3 @@ class ConfSponsorSeeder extends Seeder
         }
     }
 }
-

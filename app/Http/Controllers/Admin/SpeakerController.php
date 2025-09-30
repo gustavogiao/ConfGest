@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Actions\Speaker\CreateSpeaker;
+use App\Actions\Speaker\DeleteSpeaker;
+use App\Actions\Speaker\UpdateSpeaker;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Speaker\SpeakerRequest;
 use App\Models\Speaker;
@@ -14,6 +17,7 @@ class SpeakerController extends Controller
     public function index()
     {
         $speakers = Speaker::with('type')->paginate(5);
+
         return view('admin.speakers.index', compact('speakers'));
     }
 
@@ -28,15 +32,9 @@ class SpeakerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(SpeakerRequest $request)
+    public function store(SpeakerRequest $request, CreateSpeaker $action)
     {
-        $data = $request->validated();
-
-        if ($request->hasFile('photo')) {
-            $data['photo'] = $request->file('photo')->store('speakers', 'public');
-        }
-
-        Speaker::create($data);
+        $action->handle($request->validated(), $request);
 
         return redirect()->route('admin.speakers.index')
             ->with('success', 'Speaker created successfully.');
@@ -61,36 +59,21 @@ class SpeakerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(SpeakerRequest $request, Speaker $speaker)
+    public function update(SpeakerRequest $request, Speaker $speaker, UpdateSpeaker $action)
     {
-        $data = $request->validated();
-
-        if ($request->hasFile('photo')) {
-            // Delete old photo if exists
-            if ($speaker->photo) {
-                \Storage::disk('public')->delete($speaker->photo);
-            }
-            $data['photo'] = $request->file('photo')->store('speakers', 'public');
-        }
-
-        $speaker->update($data);
+        $action->handle($speaker, $request, $request->validated());
 
         return redirect()->route('admin.speakers.index')
             ->with('success', 'Speaker updated successfully.');
-
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Speaker $speaker)
+    public function destroy(Speaker $speaker, DeleteSpeaker $action)
     {
-        // Delete photo if exists
-        if ($speaker->photo) {
-            \Storage::disk('public')->delete($speaker->photo);
-        }
+        $action->handle($speaker);
 
-        $speaker->delete();
         return redirect()->route('admin.speakers.index')
             ->with('success', 'Speaker deleted successfully.');
     }

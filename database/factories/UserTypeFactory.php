@@ -12,8 +12,7 @@ class UserTypeFactory extends Factory
     public function definition()
     {
         return [
-            'description' => $this->faker->randomElement(['Admin','Participant','Speaker','Sponsor']),
+            'description' => $this->faker->randomElement(['Admin', 'Participant', 'Speaker', 'Sponsor']),
         ];
     }
 }
-

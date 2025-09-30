@@ -2,23 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\Registration\RegisterParticipant;
+use App\Actions\Registration\UnregisterParticipant;
 use App\Models\Conference;
 use Illuminate\Http\RedirectResponse;
 
 class RegistrationController extends Controller
 {
-    public function store(Conference $conference): RedirectResponse
+    public function store(Conference $conference, RegisterParticipant $action): RedirectResponse
     {
-        $conference->participants()->attach(auth()->id(), [
-            'registration_date' => now(),
-        ]);
+        $action->handle($conference);
 
         return back()->with('status', 'Inscrição feita com sucesso!');
     }
 
-    public function destroy(Conference $conference): RedirectResponse
+    public function destroy(Conference $conference, UnregisterParticipant $action): RedirectResponse
     {
-        $conference->participants()->detach(auth()->id());
+        $action->handle($conference);
 
         return back()->with('status', 'Inscrição cancelada.');
     }

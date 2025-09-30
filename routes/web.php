@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\ConferenceController;
 use App\Http\Controllers\Admin\SpeakerController;
 use App\Http\Controllers\Admin\SponsorController;
-use App\Http\Controllers\Admin\ConferenceController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\MyConferenceController;
 use App\Http\Controllers\ProfileController;

@@ -14,8 +14,9 @@ class ConferenceController extends Controller
     {
         $conferences = Conference::with([
             'speakers',
-            'sponsors'
+            'sponsors',
         ])->orderByDesc('conference_date')->paginate(4);
+
         return view('conference.index', compact('conferences'));
     }
 
@@ -31,9 +32,9 @@ class ConferenceController extends Controller
             'sponsors' => function ($query) {
                 $query->where('is_active', true);
             },
-            'participants'
+            'participants',
         ]);
+
         return view('conference.show', compact('conference'));
     }
-
 }

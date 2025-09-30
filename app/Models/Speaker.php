@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Speaker extends Model
 {
@@ -11,7 +11,7 @@ class Speaker extends Model
 
     protected $fillable = [
         'name', 'affiliation', 'biography', 'photo', 'social_networks',
-        'page_link', 'speaker_type_id', 'is_active'
+        'page_link', 'speaker_type_id', 'is_active',
     ];
 
     protected $casts = [
@@ -41,7 +41,4 @@ class Speaker extends Model
             ? 'text-green-600 dark:text-green-400'
             : 'text-red-600 dark:text-red-400';
     }
-
-
 }
-

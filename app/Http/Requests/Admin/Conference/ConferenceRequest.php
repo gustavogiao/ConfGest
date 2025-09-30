@@ -15,7 +15,7 @@ class ConferenceRequest extends FormRequest
                 'required',
                 'string',
                 'max:50',
-                'unique:conferences,acronym' . ($conferenceId ? ',' . $conferenceId : ''),
+                'unique:conferences,acronym'.($conferenceId ? ','.$conferenceId : ''),
             ],
             'name' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string'],
@@ -38,11 +38,10 @@ class ConferenceRequest extends FormRequest
                     if ($exists) {
                         $fail('This speaker is already assigned to another conference on the same date.');
                     }
-                }
+                },
             ],
             'sponsors' => ['nullable', 'array'],
             'sponsors.*' => ['integer', 'exists:sponsors,id'],
         ];
     }
-
 }

@@ -26,4 +26,3 @@ class MyConferenceController extends Controller
         return view('conference.my', compact('upcoming', 'past'));
     }
 }
-

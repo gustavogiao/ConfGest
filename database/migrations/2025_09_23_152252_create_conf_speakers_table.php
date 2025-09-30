@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('conference_id')->constrained('conferences')->cascadeOnDelete();
             $table->foreignId('speaker_id')->constrained('speakers')->cascadeOnDelete();
-            $table->unique(['conference_id','speaker_id']);
+            $table->unique(['conference_id', 'speaker_id']);
             $table->timestamps();
         });
     }

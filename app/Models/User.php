@@ -2,19 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\Passwords\CanResetPassword as CanResetPasswordTrait;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable implements CanResetPasswordContract
 {
-    use HasFactory, Notifiable, CanResetPasswordTrait;
+    use CanResetPasswordTrait, HasFactory, Notifiable;
 
     protected $fillable = [
         'firstname', 'lastname', 'username', 'user_type_id',
-        'email', 'password', 'description', 'last_login', 'is_active'
+        'email', 'password', 'description', 'last_login', 'is_active',
     ];
 
     protected $hidden = ['password'];

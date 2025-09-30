@@ -12,8 +12,7 @@ class SpeakerTypeFactory extends Factory
     public function definition()
     {
         return [
-            'description' => $this->faker->randomElement(['Keynote','Panelist','Workshop Leader']),
+            'description' => $this->faker->randomElement(['Keynote', 'Panelist', 'Workshop Leader']),
         ];
     }
 }
-

@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\UserType;
-use Database\Factories\UserFactory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -23,48 +22,48 @@ class UserSeeder extends Seeder
 
         // Criar utilizadores fixos
         User::create([
-            'firstname'    => 'System',
-            'lastname'     => 'Admin',
-            'username'     => 'admin',
-            'email'        => 'admin@confgest.test',
-            'password'     => Hash::make('password'),
+            'firstname' => 'System',
+            'lastname' => 'Admin',
+            'username' => 'admin',
+            'email' => 'admin@confgest.test',
+            'password' => Hash::make('password'),
             'user_type_id' => $adminType->id,
-            'is_active'    => true,
+            'is_active' => true,
         ]);
 
         User::create([
-            'firstname'    => 'Default',
-            'lastname'     => 'Participant',
-            'username'     => 'participant',
-            'email'        => 'participant@confgest.test',
-            'password'     => Hash::make('password'),
+            'firstname' => 'Default',
+            'lastname' => 'Participant',
+            'username' => 'participant',
+            'email' => 'participant@confgest.test',
+            'password' => Hash::make('password'),
             'user_type_id' => $participantType->id,
-            'is_active'    => true,
+            'is_active' => true,
         ]);
 
         User::create([
-            'firstname'    => 'Speaker',
-            'lastname'     => 'Manager',
-            'username'     => 'speakermanager',
-            'email'        => 'speaker@confgest.test',
-            'password'     => Hash::make('password'),
+            'firstname' => 'Speaker',
+            'lastname' => 'Manager',
+            'username' => 'speakermanager',
+            'email' => 'speaker@confgest.test',
+            'password' => Hash::make('password'),
             'user_type_id' => $speakerManagerType->id,
-            'is_active'    => true,
+            'is_active' => true,
         ]);
 
         User::create([
-            'firstname'    => 'Sponsor',
-            'lastname'     => 'Manager',
-            'username'     => 'sponsormanager',
-            'email'        => 'sponsor@confgest.test',
-            'password'     => Hash::make('password'),
+            'firstname' => 'Sponsor',
+            'lastname' => 'Manager',
+            'username' => 'sponsormanager',
+            'email' => 'sponsor@confgest.test',
+            'password' => Hash::make('password'),
             'user_type_id' => $sponsorManagerType->id,
-            'is_active'    => true,
+            'is_active' => true,
         ]);
 
         User::factory(10)->create([
             'user_type_id' => $participantType->id,
-            'is_active'    => true,
+            'is_active' => true,
         ]);
 
     }

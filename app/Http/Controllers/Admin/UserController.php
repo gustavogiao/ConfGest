@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Actions\User\CreateUser;
+use App\Actions\User\DeleteUser;
+use App\Actions\User\UpdateUser;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\User\UserRequest;
 use App\Models\User;
@@ -15,6 +18,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::paginate(5);
+
         return view('admin.users.index', compact('users'));
     }
 
@@ -24,17 +28,16 @@ class UserController extends Controller
     public function create()
     {
         $userTypes = UserType::all();
+
         return view('admin.users.create', compact('userTypes'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(UserRequest $request)
+    public function store(UserRequest $request, CreateUser $action)
     {
-        $data = $request->validated();
-        $data['password'] = bcrypt($data['password']);
-        User::create($data);
+        $action->handle($request->validated());
 
         return redirect()->route('admin.users.index')
             ->with('success', 'User created successfully.');
@@ -54,16 +57,16 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $userTypes = UserType::all();
+
         return view('admin.users.edit', compact('user', 'userTypes'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UserRequest $request, User $user)
+    public function update(UserRequest $request, User $user, UpdateUser $action)
     {
-        $data = $request->validated();
-        $user->update($data);
+        $action->handle($user, $request->validated());
 
         return redirect()->route('admin.users.index')
             ->with('success', 'User updated successfully.');
@@ -72,9 +75,10 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy(User $user, DeleteUser $action)
     {
-        $user->delete();
+        $action->handle($user);
+
         return redirect()->route('admin.users.index')
             ->with('success', 'User deleted successfully.');
     }
