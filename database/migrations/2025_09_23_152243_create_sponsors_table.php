@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('category', 60)->nullable();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\Conference\FilterConferences;
+use App\Actions\Conference\LoadConferenceRelations;
 use App\Models\Conference;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class ConferenceController extends Controller
@@ -10,31 +13,18 @@ class ConferenceController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index(Request $request, FilterConferences $action): View
     {
-        $conferences = Conference::with([
-            'speakers',
-            'sponsors',
-        ])->orderByDesc('conference_date')->paginate(4);
-
+        $conferences = $action->handle($request);
         return view('conference.index', compact('conferences'));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Conference $conference): View
+    public function show(Conference $conference, LoadConferenceRelations $action): View
     {
-        $conference->load([
-            'speakers' => function ($query) {
-                $query->where('is_active', true)->with('type');
-            },
-            'sponsors' => function ($query) {
-                $query->where('is_active', true);
-            },
-            'participants',
-        ]);
-
+        $conference = $action->handle($conference);
         return view('conference.show', compact('conference'));
     }
 }

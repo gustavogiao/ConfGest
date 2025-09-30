@@ -16,6 +16,11 @@ class CreateSpeaker
             $data['photo'] = $request->file('photo')->store('speakers', 'public');
         }
 
+        if (isset($data['social_networks']) && is_string($data['social_networks'])) {
+            $data['social_networks'] = array_map('trim', explode(',', $data['social_networks']));
+        }
+
         return Speaker::create($data);
     }
+
 }

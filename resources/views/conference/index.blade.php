@@ -9,6 +9,14 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6">
                 @if($conferences->count())
+                    <form method="GET" action="{{ route('conference.index') }}" class="mb-6 flex gap-2">
+                        <input type="text" name="search" value="{{ request('search') }}"
+                               placeholder="Search conferences by name or acronym"
+                               class="border rounded px-3 py-2 w-1/3" />
+                        <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded">
+                            Search
+                        </button>
+                    </form>
                     <ul class="space-y-4">
                         @foreach($conferences as $conference)
                             <li class="border-b pb-4">

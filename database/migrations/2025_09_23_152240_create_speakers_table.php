@@ -22,6 +22,7 @@ return new class extends Migration
             $table->foreignId('speaker_type_id')->constrained('speaker_types');
             $table->boolean('is_active')->default(true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

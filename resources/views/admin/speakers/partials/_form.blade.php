@@ -47,6 +47,16 @@
         @endif
     </div>
 
+    <!-- Social Networks -->
+    <div>
+        <x-input-label for="social_networks" value="Social Networks (comma-separated URLs)"
+        />
+        <x-text-input id="social_networks" name="social_networks" type="text"
+                        class="mt-1 block w-full"
+                        value="{{ old('social_networks', isset($speaker->social_networks) ? implode(',', $speaker->social_networks) : '') }}" />
+        <x-input-error :messages="$errors->get('social_networks')" class="mt-2" />
+    </div>
+
     <!-- Personal Page Link -->
     <div>
         <x-input-label for="page_link" value="Personal Page / Website" />
