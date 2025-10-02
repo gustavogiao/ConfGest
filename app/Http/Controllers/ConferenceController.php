@@ -16,6 +16,7 @@ class ConferenceController extends Controller
     public function index(Request $request, FilterConferences $action): View
     {
         $conferences = $action->handle($request);
+
         return view('conference.index', compact('conferences'));
     }
 
@@ -25,6 +26,7 @@ class ConferenceController extends Controller
     public function show(Conference $conference, LoadConferenceRelations $action): View
     {
         $conference = $action->handle($conference);
+
         return view('conference.show', compact('conference'));
     }
 }

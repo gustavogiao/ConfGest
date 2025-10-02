@@ -20,6 +20,8 @@ class User extends Authenticatable implements CanResetPasswordContract
 
     protected $hidden = ['password'];
 
+    protected $casts = ['is_active' => 'boolean'];
+
     public function type()
     {
         return $this->belongsTo(UserType::class, 'user_type_id');

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for C:\Users\gusta\Herd\ConfGest\app</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="_css/bootstrap.min.css?v=12.3.8" rel="stylesheet" type="text/css">
+  <link href="_css/billboard.min.css?v=12.3.8" rel="stylesheet" type="text/css">
+  <link href="_css/style.css?v=12.3.8" rel="stylesheet" type="text/css">
+  <link href="_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="index.html">C:\Users\gusta\Herd\ConfGest\app</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classesCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3 style="margin-top: 2rem;">Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Http/Controllers/Auth/EmailVerificationNotificationController.php.html#9">App\Http\Controllers\Auth\EmailVerificationNotificationController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/Auth/LoginRequest.php.html#12">App\Http\Requests\Auth\LoginRequest</a></td><td class="text-right">65%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/EmailVerificationPromptController.php.html#10">App\Http\Controllers\Auth\EmailVerificationPromptController</a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/VerifyEmailController.php.html#10">App\Http\Controllers\Auth\VerifyEmailController</a></td><td class="text-right">80%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3 style="margin-top: 2rem;">Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+         <th class="text-right">Complexity</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Http/Requests/Auth/LoginRequest.php.html#12">App\Http\Requests\Auth\LoginRequest</a></td><td class="text-right">65.2%</td><td class="text-right">7</td><td class="text-right">9</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/EmailVerificationNotificationController.php.html#9">App\Http\Controllers\Auth\EmailVerificationNotificationController</a></td><td class="text-right">0.0%</td><td class="text-right">2</td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/VerifyEmailController.php.html#10">App\Http\Controllers\Auth\VerifyEmailController</a></td><td class="text-right">80.0%</td><td class="text-right">3</td><td class="text-right">3</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/EmailVerificationPromptController.php.html#10">App\Http\Controllers\Auth\EmailVerificationPromptController</a></td><td class="text-right">66.7%</td><td class="text-right">2</td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2 style="margin-top: 3rem;">Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodsCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3 style="margin-top: 2rem;">Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Http/Controllers/Auth/EmailVerificationNotificationController.php.html#14"><abbr title="App\Http\Controllers\Auth\EmailVerificationNotificationController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/Auth/LoginRequest.php.html#60"><abbr title="App\Http\Requests\Auth\LoginRequest::ensureIsNotRateLimited">ensureIsNotRateLimited</abbr></a></td><td class="text-right">20%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/EmailVerificationPromptController.php.html#15"><abbr title="App\Http\Controllers\Auth\EmailVerificationPromptController::__invoke">__invoke</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Http/Controllers/Admin/ConferenceController.php.html#81"><abbr title="App\Http\Controllers\Admin\ConferenceController::update">update</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/VerifyEmailController.php.html#15"><abbr title="App\Http\Controllers\Auth\VerifyEmailController::__invoke">__invoke</abbr></a></td><td class="text-right">80%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3 style="margin-top: 2rem;">Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+         <th class="text-right">Complexity</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Http/Controllers/Auth/EmailVerificationNotificationController.php.html#14"><abbr title="App\Http\Controllers\Auth\EmailVerificationNotificationController::store">store</abbr></a></td><td class="text-right">0.0%</td><td class="text-right">2</td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Requests/Auth/LoginRequest.php.html#60"><abbr title="App\Http\Requests\Auth\LoginRequest::ensureIsNotRateLimited">ensureIsNotRateLimited</abbr></a></td><td class="text-right">20.0%</td><td class="text-right">2</td><td class="text-right">4</td></tr>
+       <tr><td><a href="Http/Controllers/Admin/ConferenceController.php.html#81"><abbr title="App\Http\Controllers\Admin\ConferenceController::update">update</abbr></a></td><td class="text-right">80.0%</td><td class="text-right">3</td><td class="text-right">3</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/VerifyEmailController.php.html#15"><abbr title="App\Http\Controllers\Auth\VerifyEmailController::__invoke">__invoke</abbr></a></td><td class="text-right">80.0%</td><td class="text-right">3</td><td class="text-right">3</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/EmailVerificationPromptController.php.html#15"><abbr title="App\Http\Controllers\Auth\EmailVerificationPromptController::__invoke">__invoke</abbr></a></td><td class="text-right">66.7%</td><td class="text-right">2</td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 12.3.8</a> using <a href="https://www.php.net/" target="_top">PHP 8.4.5</a> and <a href="https://phpunit.de/">PHPUnit 12.3.8</a> at Thu Oct 2 19:25:35 UTC 2025.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="_js/billboard.pkgd.min.js?v=12.3.8" type="text/javascript"></script>
+  <script type="application/json" id="complexity_class">[[0,2,"Http\/Controllers\/Auth\/EmailVerificationNotificationController.php.html#9","App\\Http\\Controllers\\Auth\\EmailVerificationNotificationController","6"],[65.21739130434783,7,"Http\/Requests\/Auth\/LoginRequest.php.html#12","App\\Http\\Requests\\Auth\\LoginRequest","9.06"],[66.66666666666666,2,"Http\/Controllers\/Auth\/EmailVerificationPromptController.php.html#10","App\\Http\\Controllers\\Auth\\EmailVerificationPromptController","2.15"],[80,3,"Http\/Controllers\/Auth\/VerifyEmailController.php.html#10","App\\Http\\Controllers\\Auth\\VerifyEmailController","3.07"],[93.75,3,"Http\/Requests\/Admin\/Conference\/ConferenceRequest.php.html#7","App\\Http\\Requests\\Admin\\Conference\\ConferenceRequest","3.00"],[94.11764705882352,11,"Http\/Controllers\/Admin\/ConferenceController.php.html#11","App\\Http\\Controllers\\Admin\\ConferenceController","11.02"],[94.11764705882352,4,"Http\/Requests\/Admin\/User\/UserRequest.php.html#7","App\\Http\\Requests\\Admin\\User\\UserRequest","4.00"],[100,2,"Actions\/Conference\/FilterConferences.php.html#9","App\\Actions\\Conference\\FilterConferences","2"],[100,1,"Actions\/Conference\/LoadConferenceRelations.php.html#7","App\\Actions\\Conference\\LoadConferenceRelations","1"],[100,1,"Actions\/Registration\/RegisterParticipant.php.html#8","App\\Actions\\Registration\\RegisterParticipant","1"],[100,1,"Actions\/Registration\/UnregisterParticipant.php.html#8","App\\Actions\\Registration\\UnregisterParticipant","1"],[100,4,"Actions\/Speaker\/CreateSpeaker.php.html#9","App\\Actions\\Speaker\\CreateSpeaker","4"],[100,2,"Actions\/Speaker\/DeleteSpeaker.php.html#8","App\\Actions\\Speaker\\DeleteSpeaker","2"],[100,5,"Actions\/Speaker\/UpdateSpeaker.php.html#9","App\\Actions\\Speaker\\UpdateSpeaker","5"],[100,2,"Actions\/Sponsor\/CreateSponsor.php.html#9","App\\Actions\\Sponsor\\CreateSponsor","2"],[100,2,"Actions\/Sponsor\/DeleteSponsor.php.html#8","App\\Actions\\Sponsor\\DeleteSponsor","2"],[100,3,"Actions\/Sponsor\/UpdateSponsor.php.html#9","App\\Actions\\Sponsor\\UpdateSponsor","3"],[100,1,"Actions\/User\/CreateUser.php.html#8","App\\Actions\\User\\CreateUser","1"],[100,1,"Actions\/User\/DeleteUser.php.html#8","App\\Actions\\User\\DeleteUser","1"],[100,2,"Actions\/User\/UpdateUser.php.html#8","App\\Actions\\User\\UpdateUser","2"],[100,7,"Http\/Controllers\/Admin\/SpeakerController.php.html#12","App\\Http\\Controllers\\Admin\\SpeakerController","7"],[100,7,"Http\/Controllers\/Admin\/SponsorController.php.html#12","App\\Http\\Controllers\\Admin\\SponsorController","7"],[100,7,"Http\/Controllers\/Admin\/UserController.php.html#13","App\\Http\\Controllers\\Admin\\UserController","7"],[100,3,"Http\/Controllers\/Auth\/AuthenticatedSessionController.php.html#12","App\\Http\\Controllers\\Auth\\AuthenticatedSessionController","3"],[100,3,"Http\/Controllers\/Auth\/ConfirmablePasswordController.php.html#12","App\\Http\\Controllers\\Auth\\ConfirmablePasswordController","3"],[100,3,"Http\/Controllers\/Auth\/NewPasswordController.php.html#16","App\\Http\\Controllers\\Auth\\NewPasswordController","3"],[100,1,"Http\/Controllers\/Auth\/PasswordController.php.html#11","App\\Http\\Controllers\\Auth\\PasswordController","1"],[100,3,"Http\/Controllers\/Auth\/PasswordResetLinkController.php.html#11","App\\Http\\Controllers\\Auth\\PasswordResetLinkController","3"],[100,2,"Http\/Controllers\/Auth\/RegisteredUserController.php.html#16","App\\Http\\Controllers\\Auth\\RegisteredUserController","2"],[100,2,"Http\/Controllers\/ConferenceController.php.html#11","App\\Http\\Controllers\\ConferenceController","2"],[100,0,"Http\/Controllers\/Controller.php.html#5","App\\Http\\Controllers\\Controller","0"],[100,1,"Http\/Controllers\/MyConferenceController.php.html#8","App\\Http\\Controllers\\MyConferenceController","1"],[100,4,"Http\/Controllers\/ProfileController.php.html#12","App\\Http\\Controllers\\ProfileController","4"],[100,2,"Http\/Controllers\/RegistrationController.php.html#10","App\\Http\\Controllers\\RegistrationController","2"],[100,4,"Http\/Middleware\/AdminMiddleware.php.html#9","App\\Http\\Middleware\\AdminMiddleware","4"],[100,1,"Http\/Requests\/Admin\/Speaker\/SpeakerRequest.php.html#7","App\\Http\\Requests\\Admin\\Speaker\\SpeakerRequest","1"],[100,1,"Http\/Requests\/Admin\/Sponsor\/SponsorRequest.php.html#7","App\\Http\\Requests\\Admin\\Sponsor\\SponsorRequest","1"],[100,1,"Http\/Requests\/ProfileUpdateRequest.php.html#9","App\\Http\\Requests\\ProfileUpdateRequest","1"],[100,0,"Models\/ConfParticipant.php.html#7","App\\Models\\ConfParticipant","0"],[100,0,"Models\/ConfSpeaker.php.html#7","App\\Models\\ConfSpeaker","0"],[100,0,"Models\/ConfSponsor.php.html#7","App\\Models\\ConfSponsor","0"],[100,3,"Models\/Conference.php.html#8","App\\Models\\Conference","3"],[100,6,"Models\/Speaker.php.html#9","App\\Models\\Speaker","6"],[100,1,"Models\/SpeakerType.php.html#8","App\\Models\\SpeakerType","1"],[100,5,"Models\/Sponsor.php.html#9","App\\Models\\Sponsor","5"],[100,6,"Models\/User.php.html#12","App\\Models\\User","6"],[100,1,"Models\/UserType.php.html#8","App\\Models\\UserType","1"],[100,2,"Providers\/AppServiceProvider.php.html#7","App\\Providers\\AppServiceProvider","2"],[100,1,"View\/Components\/AppLayout.php.html#8","App\\View\\Components\\AppLayout","1"],[100,1,"View\/Components\/GuestLayout.php.html#8","App\\View\\Components\\GuestLayout","1"]]</script>
+  <script type="application/json" id="complexity_method">[[0,2,"Http\/Controllers\/Auth\/EmailVerificationNotificationController.php.html#14","App\\Http\\Controllers\\Auth\\EmailVerificationNotificationController::store","6"],[20,2,"Http\/Requests\/Auth\/LoginRequest.php.html#60","App\\Http\\Requests\\Auth\\LoginRequest::ensureIsNotRateLimited","4.05"],[66.66666666666666,2,"Http\/Controllers\/Auth\/EmailVerificationPromptController.php.html#15","App\\Http\\Controllers\\Auth\\EmailVerificationPromptController::__invoke","2.15"],[80,3,"Http\/Controllers\/Admin\/ConferenceController.php.html#81","App\\Http\\Controllers\\Admin\\ConferenceController::update","3.07"],[80,3,"Http\/Controllers\/Auth\/VerifyEmailController.php.html#15","App\\Http\\Controllers\\Auth\\VerifyEmailController::__invoke","3.07"],[93.75,3,"Http\/Requests\/Admin\/Conference\/ConferenceRequest.php.html#9","App\\Http\\Requests\\Admin\\Conference\\ConferenceRequest::rules","3.00"],[94.11764705882352,4,"Http\/Requests\/Admin\/User\/UserRequest.php.html#9","App\\Http\\Requests\\Admin\\User\\UserRequest::rules","4.00"],[100,2,"Actions\/Conference\/FilterConferences.php.html#13","App\\Actions\\Conference\\FilterConferences::handle","2"],[100,1,"Actions\/Conference\/LoadConferenceRelations.php.html#9","App\\Actions\\Conference\\LoadConferenceRelations::handle","1"],[100,1,"Actions\/Registration\/RegisterParticipant.php.html#12","App\\Actions\\Registration\\RegisterParticipant::handle","1"],[100,1,"Actions\/Registration\/UnregisterParticipant.php.html#12","App\\Actions\\Registration\\UnregisterParticipant::handle","1"],[100,4,"Actions\/Speaker\/CreateSpeaker.php.html#13","App\\Actions\\Speaker\\CreateSpeaker::handle","4"],[100,2,"Actions\/Speaker\/DeleteSpeaker.php.html#12","App\\Actions\\Speaker\\DeleteSpeaker::handle","2"],[100,5,"Actions\/Speaker\/UpdateSpeaker.php.html#13","App\\Actions\\Speaker\\UpdateSpeaker::handle","5"],[100,2,"Actions\/Sponsor\/CreateSponsor.php.html#13","App\\Actions\\Sponsor\\CreateSponsor::handle","2"],[100,2,"Actions\/Sponsor\/DeleteSponsor.php.html#12","App\\Actions\\Sponsor\\DeleteSponsor::handle","2"],[100,3,"Actions\/Sponsor\/UpdateSponsor.php.html#13","App\\Actions\\Sponsor\\UpdateSponsor::handle","3"],[100,1,"Actions\/User\/CreateUser.php.html#12","App\\Actions\\User\\CreateUser::handle","1"],[100,1,"Actions\/User\/DeleteUser.php.html#12","App\\Actions\\User\\DeleteUser::handle","1"],[100,2,"Actions\/User\/UpdateUser.php.html#12","App\\Actions\\User\\UpdateUser::handle","2"],[100,1,"Http\/Controllers\/Admin\/ConferenceController.php.html#16","App\\Http\\Controllers\\Admin\\ConferenceController::index","1"],[100,1,"Http\/Controllers\/Admin\/ConferenceController.php.html#26","App\\Http\\Controllers\\Admin\\ConferenceController::create","1"],[100,3,"Http\/Controllers\/Admin\/ConferenceController.php.html#39","App\\Http\\Controllers\\Admin\\ConferenceController::store","3"],[100,1,"Http\/Controllers\/Admin\/ConferenceController.php.html#59","App\\Http\\Controllers\\Admin\\ConferenceController::show","1"],[100,1,"Http\/Controllers\/Admin\/ConferenceController.php.html#69","App\\Http\\Controllers\\Admin\\ConferenceController::edit","1"],[100,1,"Http\/Controllers\/Admin\/ConferenceController.php.html#106","App\\Http\\Controllers\\Admin\\ConferenceController::destroy","1"],[100,1,"Http\/Controllers\/Admin\/SpeakerController.php.html#17","App\\Http\\Controllers\\Admin\\SpeakerController::index","1"],[100,1,"Http\/Controllers\/Admin\/SpeakerController.php.html#27","App\\Http\\Controllers\\Admin\\SpeakerController::create","1"],[100,1,"Http\/Controllers\/Admin\/SpeakerController.php.html#35","App\\Http\\Controllers\\Admin\\SpeakerController::store","1"],[100,1,"Http\/Controllers\/Admin\/SpeakerController.php.html#46","App\\Http\\Controllers\\Admin\\SpeakerController::show","1"],[100,1,"Http\/Controllers\/Admin\/SpeakerController.php.html#54","App\\Http\\Controllers\\Admin\\SpeakerController::edit","1"],[100,1,"Http\/Controllers\/Admin\/SpeakerController.php.html#62","App\\Http\\Controllers\\Admin\\SpeakerController::update","1"],[100,1,"Http\/Controllers\/Admin\/SpeakerController.php.html#73","App\\Http\\Controllers\\Admin\\SpeakerController::destroy","1"],[100,1,"Http\/Controllers\/Admin\/SponsorController.php.html#17","App\\Http\\Controllers\\Admin\\SponsorController::index","1"],[100,1,"Http\/Controllers\/Admin\/SponsorController.php.html#27","App\\Http\\Controllers\\Admin\\SponsorController::create","1"],[100,1,"Http\/Controllers\/Admin\/SponsorController.php.html#37","App\\Http\\Controllers\\Admin\\SponsorController::store","1"],[100,1,"Http\/Controllers\/Admin\/SponsorController.php.html#49","App\\Http\\Controllers\\Admin\\SponsorController::show","1"],[100,1,"Http\/Controllers\/Admin\/SponsorController.php.html#57","App\\Http\\Controllers\\Admin\\SponsorController::edit","1"],[100,1,"Http\/Controllers\/Admin\/SponsorController.php.html#67","App\\Http\\Controllers\\Admin\\SponsorController::update","1"],[100,1,"Http\/Controllers\/Admin\/SponsorController.php.html#78","App\\Http\\Controllers\\Admin\\SponsorController::destroy","1"],[100,1,"Http\/Controllers\/Admin\/UserController.php.html#18","App\\Http\\Controllers\\Admin\\UserController::index","1"],[100,1,"Http\/Controllers\/Admin\/UserController.php.html#28","App\\Http\\Controllers\\Admin\\UserController::create","1"],[100,1,"Http\/Controllers\/Admin\/UserController.php.html#38","App\\Http\\Controllers\\Admin\\UserController::store","1"],[100,1,"Http\/Controllers\/Admin\/UserController.php.html#49","App\\Http\\Controllers\\Admin\\UserController::show","1"],[100,1,"Http\/Controllers\/Admin\/UserController.php.html#57","App\\Http\\Controllers\\Admin\\UserController::edit","1"],[100,1,"Http\/Controllers\/Admin\/UserController.php.html#67","App\\Http\\Controllers\\Admin\\UserController::update","1"],[100,1,"Http\/Controllers\/Admin\/UserController.php.html#78","App\\Http\\Controllers\\Admin\\UserController::destroy","1"],[100,1,"Http\/Controllers\/Auth\/AuthenticatedSessionController.php.html#17","App\\Http\\Controllers\\Auth\\AuthenticatedSessionController::create","1"],[100,1,"Http\/Controllers\/Auth\/AuthenticatedSessionController.php.html#25","App\\Http\\Controllers\\Auth\\AuthenticatedSessionController::store","1"],[100,1,"Http\/Controllers\/Auth\/AuthenticatedSessionController.php.html#42","App\\Http\\Controllers\\Auth\\AuthenticatedSessionController::destroy","1"],[100,1,"Http\/Controllers\/Auth\/ConfirmablePasswordController.php.html#17","App\\Http\\Controllers\\Auth\\ConfirmablePasswordController::show","1"],[100,2,"Http\/Controllers\/Auth\/ConfirmablePasswordController.php.html#25","App\\Http\\Controllers\\Auth\\ConfirmablePasswordController::store","2"],[100,1,"Http\/Controllers\/Auth\/NewPasswordController.php.html#21","App\\Http\\Controllers\\Auth\\NewPasswordController::create","1"],[100,2,"Http\/Controllers\/Auth\/NewPasswordController.php.html#31","App\\Http\\Controllers\\Auth\\NewPasswordController::store","2"],[100,1,"Http\/Controllers\/Auth\/PasswordController.php.html#16","App\\Http\\Controllers\\Auth\\PasswordController::update","1"],[100,1,"Http\/Controllers\/Auth\/PasswordResetLinkController.php.html#16","App\\Http\\Controllers\\Auth\\PasswordResetLinkController::create","1"],[100,2,"Http\/Controllers\/Auth\/PasswordResetLinkController.php.html#26","App\\Http\\Controllers\\Auth\\PasswordResetLinkController::store","2"],[100,1,"Http\/Controllers\/Auth\/RegisteredUserController.php.html#21","App\\Http\\Controllers\\Auth\\RegisteredUserController::create","1"],[100,1,"Http\/Controllers\/Auth\/RegisteredUserController.php.html#31","App\\Http\\Controllers\\Auth\\RegisteredUserController::store","1"],[100,1,"Http\/Controllers\/ConferenceController.php.html#16","App\\Http\\Controllers\\ConferenceController::index","1"],[100,1,"Http\/Controllers\/ConferenceController.php.html#26","App\\Http\\Controllers\\ConferenceController::show","1"],[100,1,"Http\/Controllers\/MyConferenceController.php.html#10","App\\Http\\Controllers\\MyConferenceController::index","1"],[100,1,"Http\/Controllers\/ProfileController.php.html#17","App\\Http\\Controllers\\ProfileController::edit","1"],[100,2,"Http\/Controllers\/ProfileController.php.html#27","App\\Http\\Controllers\\ProfileController::update","2"],[100,1,"Http\/Controllers\/ProfileController.php.html#45","App\\Http\\Controllers\\ProfileController::destroy","1"],[100,1,"Http\/Controllers\/RegistrationController.php.html#12","App\\Http\\Controllers\\RegistrationController::store","1"],[100,1,"Http\/Controllers\/RegistrationController.php.html#19","App\\Http\\Controllers\\RegistrationController::destroy","1"],[100,4,"Http\/Middleware\/AdminMiddleware.php.html#11","App\\Http\\Middleware\\AdminMiddleware::handle","4"],[100,1,"Http\/Requests\/Admin\/Speaker\/SpeakerRequest.php.html#9","App\\Http\\Requests\\Admin\\Speaker\\SpeakerRequest::rules","1"],[100,1,"Http\/Requests\/Admin\/Sponsor\/SponsorRequest.php.html#9","App\\Http\\Requests\\Admin\\Sponsor\\SponsorRequest::rules","1"],[100,1,"Http\/Requests\/Auth\/LoginRequest.php.html#17","App\\Http\\Requests\\Auth\\LoginRequest::authorize","1"],[100,1,"Http\/Requests\/Auth\/LoginRequest.php.html#27","App\\Http\\Requests\\Auth\\LoginRequest::rules","1"],[100,2,"Http\/Requests\/Auth\/LoginRequest.php.html#40","App\\Http\\Requests\\Auth\\LoginRequest::authenticate","2"],[100,1,"Http\/Requests\/Auth\/LoginRequest.php.html#81","App\\Http\\Requests\\Auth\\LoginRequest::throttleKey","1"],[100,1,"Http\/Requests\/ProfileUpdateRequest.php.html#16","App\\Http\\Requests\\ProfileUpdateRequest::rules","1"],[100,1,"Models\/Conference.php.html#20","App\\Models\\Conference::participants","1"],[100,1,"Models\/Conference.php.html#27","App\\Models\\Conference::speakers","1"],[100,1,"Models\/Conference.php.html#33","App\\Models\\Conference::sponsors","1"],[100,1,"Models\/Speaker.php.html#23","App\\Models\\Speaker::type","1"],[100,1,"Models\/Speaker.php.html#28","App\\Models\\Speaker::conferences","1"],[100,2,"Models\/Speaker.php.html#34","App\\Models\\Speaker::getDisplayStatusAttribute","2"],[100,2,"Models\/Speaker.php.html#39","App\\Models\\Speaker::getStatusClassAttribute","2"],[100,1,"Models\/SpeakerType.php.html#14","App\\Models\\SpeakerType::speakers","1"],[100,1,"Models\/Sponsor.php.html#19","App\\Models\\Sponsor::conferences","1"],[100,2,"Models\/Sponsor.php.html#25","App\\Models\\Sponsor::getDisplayStatusAttribute","2"],[100,2,"Models\/Sponsor.php.html#30","App\\Models\\Sponsor::getStatusClassAttribute","2"],[100,1,"Models\/User.php.html#25","App\\Models\\User::type","1"],[100,1,"Models\/User.php.html#30","App\\Models\\User::conferences","1"],[100,2,"Models\/User.php.html#37","App\\Models\\User::getDisplayStatusAttribute","2"],[100,2,"Models\/User.php.html#42","App\\Models\\User::getStatusClassAttribute","2"],[100,1,"Models\/UserType.php.html#14","App\\Models\\UserType::users","1"],[100,1,"Providers\/AppServiceProvider.php.html#12","App\\Providers\\AppServiceProvider::register","1"],[100,1,"Providers\/AppServiceProvider.php.html#20","App\\Providers\\AppServiceProvider::boot","1"],[100,1,"View\/Components\/AppLayout.php.html#13","App\\View\\Components\\AppLayout::render","1"],[100,1,"View\/Components\/GuestLayout.php.html#13","App\\View\\Components\\GuestLayout::render","1"]]</script>
+  <script type="text/javascript" defer>
+  const barLabels = [
+    '0%',
+    '0-10%',
+    '10-20%',
+    '20-30%',
+    '30-40%',
+    '40-50%',
+    '50-60%',
+    '60-70%',
+    '70-80%',
+    '80-90%',
+    '90-100%',
+    '100%'
+  ];
+  const barConfig = (name, fullName, values) => ({
+    axis: {
+      x: {
+        type: "category",
+        categories: barLabels,
+      },
+      y: {
+        label: {
+          text: `#${name}`,
+          position: 'outer-top',
+        },
+      },
+    },
+    bindto: `#${name}CoverageDistribution`,
+    data: {
+      columns: [
+        [fullName].concat(values),
+      ],
+      colors: {
+        [fullName]: "rgba(69, 114, 167, 0.75)",
+      },
+      type: "bar",
+    },
+    bar: {
+      width: {
+        ratio: 0.9,
+      },
+    },
+    grid: {
+      focus: {
+        show: false,
+      },
+      x: {
+        show: true,
+      },
+      y: {
+        show: true,
+      },
+    },
+    legend: {
+      show: false,
+    },
+    tooltip: {
+      contents: function (data) {
+        return `<table class="bb-tooltip"><tbody>
+            <tr><th colspan="2">Coverage ${barLabels[data[0].x]}</th></tr>
+            <tr><td class="value">${data[0].value} ${name}</td></tr>
+          </tbody></table>`;
+      },
+      grouped: false,
+    },
+  });
+  bb.generate(
+    barConfig('classes', "Class Coverage", [1,0,0,0,0,0,0,2,0,1,3,43])
+  );
+  bb.generate(
+    barConfig('methods', "Method Coverage", [1,0,0,1,0,0,0,1,0,2,2,88])
+  );
+
+  const scatterConfig = (name, complexityData) => ({
+    axis: {
+      x: {
+        label: {
+          text: 'Code Coverage (in percent)',
+          position: 'outer-right',
+        },
+        tick: {
+          values: [0, 20, 40, 60, 80, 100],
+        },
+      },
+      y: {
+        label: {
+          text: 'Cyclomatic Complexity',
+          position: 'outer-top',
+        },
+        min: 0,
+        padding: {
+          bottom: 0,
+          top: 5,
+        },
+      },
+    },
+    bindto: `#${name}Complexity`,
+    data: {
+      columns: [
+        ["complexity_x"].concat(complexityData.map(d => d[0])),
+        ["complexity"].concat(complexityData.map(d => d[1])),
+      ],
+      onclick: function(data, element) {
+        window.location = complexityData[data.index][2];
+      },
+      type: "scatter",
+      xs: {
+        "complexity": "complexity_x",
+      },
+    },
+    grid: {
+      focus: {
+        show: true,
+        y: true,
+      },
+      x: {
+        show: true,
+      },
+      y: {
+        show: true,
+      },
+    },
+    legend: {
+      show: false,
+    },
+    tooltip: {
+      contents: function (data) {
+        const coverage = Math.round(data[0].x);
+        const complexity = data[0].value;
+        const targetName = complexityData[data[0].index][3];
+        const crap = complexityData[data[0].index][4];
+        return `<table class="bb-tooltip"><tbody>
+            <tr><th colspan="2">${targetName}</th></tr>
+            <tr class="bb-tooltip-name-complexity"><td>Coverage</td><td class="name">${coverage}%</td></tr>
+            <tr class="bb-tooltip-name-complexity"><td>Complexity</td><td class="value">${complexity}</td></tr>
+            <tr class="bb-tooltip-name-complexity"><td>Crap</td><td class="value">${crap}</td></tr>
+          </tbody></table>`;
+      },
+      grouped: false,
+    },
+  });
+  const classComplexityData = JSON.parse(document.getElementById('complexity_class').textContent);
+  bb.generate(
+    scatterConfig("class", classComplexityData)
+  );
+  const methodComplexityData = JSON.parse(document.getElementById('complexity_method').textContent);
+  bb.generate(
+    scatterConfig("method", methodComplexityData),
+  );
+  </script>
+ </body>
+</html>

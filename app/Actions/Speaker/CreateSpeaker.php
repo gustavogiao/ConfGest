@@ -22,5 +22,4 @@ class CreateSpeaker
 
         return Speaker::create($data);
     }
-
 }
