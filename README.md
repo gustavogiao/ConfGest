@@ -1,61 +1,70 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# ConfGest
+## ConfGest é uma aplicação web desenvolvida em Laravel para gestão de conferências.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Requisitos
+PHP >= 8.1
+Composer
+Node.js & npm
+SQLite/MySQL/PostgreSQL
 
-## About Laravel
+# Instalação
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+1. Clone o repositório:
+   git clone
+2. Navegue até o diretório do projeto:
+   cd confgest
+3. Instale as dependências do Composer:
+4. composer install
+5. Copie o arquivo .env.example para .env:
+6. cp .env.example .env
+7. Gere a chave da aplicação:
+8. php artisan key:generate
+9. Configure o arquivo .env com as credenciais do banco de dados.
+10. Execute as migrações e seeders:
+11. php artisan migrate --seed
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# Run
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Se for Herd:
+1. npm run dev
 
-## Learning Laravel
+Se for Docker:
+1. docker-compose up -d --build
+2. docker-compose exec app php artisan migrate --seed
+3. docker-compose exec app php artisan serve --host=
+4. Acesse http://localhost:8000 no seu navegador.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+# Instalar Pest (se necessário)
+composer require pestphp/pest --dev
+php artisan pest:install
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Criar testes
+php artisan make:test NomeDoTeste --pest
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Rodar todos os testes
+php artisan test
 
-## Laravel Sponsors
+## Rodar testes com coverage
+php artisan test --coverage
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Gerar relatório HTML de coverage
+php artisan test --coverage --coverage-html=coverage
 
-### Premium Partners
+# Usar o Pink
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## Instalar Pink
+composer require pestphp/pink --dev
 
-## Contributing
+## Rodar Pink
+php ./vendor/bin/pink
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Rodar testes com Pink
+php artisan test --pink
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# Outros comandos úteis
+## Limpar cache
+php artisan cache:clear
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear
+php artisan optimize:clear
