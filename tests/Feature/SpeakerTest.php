@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Conference;
 use App\Models\Speaker;
 use App\Models\SpeakerType;
 use App\Models\User;
@@ -22,7 +23,7 @@ it('has speaker page', function () {
     $response->assertStatus(200);
 });
 
-it('cria um speaker', function () {
+it('creates a speaker', function () {
     $type = SpeakerType::factory()->create();
     $speaker = Speaker::factory()->create([
         'speaker_type_id' => $type->id,
@@ -31,13 +32,13 @@ it('cria um speaker', function () {
     expect(Speaker::find($speaker->id)->name)->toBe('John Doe');
 });
 
-it('relaciona speaker ao speaker type', function () {
+it('relates speaker to speaker type', function () {
     $type = SpeakerType::factory()->create();
     $speaker = Speaker::factory()->create(['speaker_type_id' => $type->id]);
     expect($speaker->type->id)->toBe($type->id);
 });
 
-it('retorna display status correto', function () {
+it('returns correct display status', function () {
     $type = SpeakerType::factory()->create();
     $speaker = Speaker::factory()->create(['speaker_type_id' => $type->id, 'is_active' => true]);
     expect($speaker->display_status)->toBe('Active');
@@ -47,7 +48,7 @@ it('retorna display status correto', function () {
     expect($speaker->display_status)->toBe('Inactive');
 });
 
-it('retorna status class correto', function () {
+it('returns correct status class', function () {
     $type = SpeakerType::factory()->create();
     $speaker = Speaker::factory()->create(['speaker_type_id' => $type->id, 'is_active' => true]);
     expect($speaker->status_class)->toBe('text-green-600 dark:text-green-400');
@@ -57,10 +58,10 @@ it('retorna status class correto', function () {
     expect($speaker->status_class)->toBe('text-red-600 dark:text-red-400');
 });
 
-it('relaciona conferences ao speaker', function () {
+it('relates conferences to speaker', function () {
     $type = SpeakerType::factory()->create();
     $speaker = Speaker::factory()->create(['speaker_type_id' => $type->id]);
-    $conference = \App\Models\Conference::factory()->create();
+    $conference = Conference::factory()->create();
     $speaker->conferences()->attach($conference->id);
 
     expect($speaker->conferences)->toHaveCount(1);

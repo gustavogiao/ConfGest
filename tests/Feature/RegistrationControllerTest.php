@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(RefreshDatabase::class);
 
-it('faz inscrição com sucesso', function () {
+it('registers successfully', function () {
     $userType = UserType::factory()->create();
     $user = User::factory()->create(['user_type_id' => $userType->id]);
     $conference = Conference::factory()->create();
@@ -18,7 +18,7 @@ it('faz inscrição com sucesso', function () {
         ->assertSessionHas('status', 'Inscrição feita com sucesso!');
 });
 
-it('cancela inscrição com sucesso', function () {
+it('unregisters successfully', function () {
     $userType = UserType::factory()->create();
     $user = User::factory()->create(['user_type_id' => $userType->id]);
     $conference = Conference::factory()->create();

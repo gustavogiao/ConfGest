@@ -19,20 +19,20 @@ beforeEach(function () {
     $this->actingAs($this->user);
 });
 
-it('lista conferências', function () {
+it('lists conferences', function () {
     Conference::factory()->count(2)->create();
     $this->get(route('admin.conferences.index'))
         ->assertStatus(200)
         ->assertViewIs('admin.conferences.index');
 });
 
-it('mostra formulário de criação', function () {
+it('shows create form', function () {
     $this->get(route('admin.conferences.create'))
         ->assertStatus(200)
         ->assertViewIs('admin.conferences.create');
 });
 
-it('cria conferência', function () {
+it('creates conference', function () {
     $speakerType = SpeakerType::factory()->create();
     $speaker = Speaker::factory()->create([
         'is_active' => true,
@@ -53,33 +53,7 @@ it('cria conferência', function () {
     expect(Conference::where('name', 'Conf Test')->exists())->toBeTrue();
 });
 
-// it('não permite associar speaker à conferência na mesma data', function () {
-//    $speakerType = SpeakerType::factory()->create();
-//    $speaker = Speaker::factory()->create([
-//        'is_active' => true,
-//        'speaker_type_id' => $speakerType->id,
-//    ]);
-//    $date = now()->addDays(5)->format('Y-m-d');
-//
-//    $conf1 = Conference::factory()->create(['conference_date' => $date]);
-//    $conf1->speakers()->attach($speaker);
-//
-//    $data = [
-//        'acronym' => 'DEF',
-//        'name' => 'Outra Conf',
-//        'description' => 'Teste',
-//        'location' => 'Local',
-//        'conference_date' => $date,
-//        'speakers' => [$speaker->id],
-//    ];
-//
-//    $this->post(route('admin.conferences.store'), $data)
-//        ->assertSessionHasErrors([
-//            'speakers.0' => 'This speaker is already assigned to another conference on the same date.',
-//        ]);
-// });
-
-it('mostra detalhes da conferência', function () {
+it('shows conference details', function () {
     $conference = Conference::factory()->create();
     $this->get(route('admin.conferences.show', $conference))
         ->assertStatus(200)
@@ -87,14 +61,14 @@ it('mostra detalhes da conferência', function () {
         ->assertViewHas('conference', $conference);
 });
 
-it('mostra formulário de edição', function () {
+it('shows edit form', function () {
     $conference = Conference::factory()->create();
     $this->get(route('admin.conferences.edit', $conference))
         ->assertStatus(200)
         ->assertViewIs('admin.conferences.edit');
 });
 
-it('atualiza conferência', function () {
+it('updates conference', function () {
     $conference = Conference::factory()->create(['name' => 'Old']);
     $data = [
         'acronym' => $conference->acronym,
@@ -108,9 +82,10 @@ it('atualiza conferência', function () {
     expect($conference->fresh()->name)->toBe('New');
 });
 
-it('deleta conferência', function () {
+it('deletes conference', function () {
     $conference = Conference::factory()->create();
     $this->delete(route('admin.conferences.destroy', $conference))
         ->assertRedirect(route('admin.conferences.index'));
     expect(Conference::find($conference->id))->toBeNull();
 });
+

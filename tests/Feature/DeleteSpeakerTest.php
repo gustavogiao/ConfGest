@@ -11,7 +11,7 @@ beforeEach(function () {
     SpeakerType::factory()->create(['id' => 1]);
 });
 
-it('deleta speaker e foto', function () {
+it('deletes speaker and photo', function () {
     $photo = UploadedFile::fake()->image('photo.jpg')->store('speakers', 'public');
     $speaker = Speaker::factory()->create([
         'photo' => $photo,
@@ -25,7 +25,7 @@ it('deleta speaker e foto', function () {
     expect(Storage::disk('public')->exists($photo))->toBeFalse();
 });
 
-it('deleta speaker sem foto', function () {
+it('deletes speaker without photo', function () {
     $speaker = Speaker::factory()->create([
         'photo' => null,
         'speaker_type_id' => 1,

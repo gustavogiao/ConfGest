@@ -12,7 +12,7 @@ beforeEach(function () {
     SpeakerType::factory()->create(['id' => 1]);
 });
 
-it('cria um speaker normalmente', function () {
+it('creates a speaker normally', function () {
     $data = [
         'name' => 'John Doe',
         'affiliation' => 'Acme',
@@ -27,7 +27,7 @@ it('cria um speaker normalmente', function () {
         ->and($speaker->name)->toBe('John Doe');
 });
 
-it('cria um speaker com foto', function () {
+it('creates a speaker with photo', function () {
     $data = [
         'name' => 'Jane Doe',
         'affiliation' => 'Acme',
@@ -43,7 +43,7 @@ it('cria um speaker com foto', function () {
     Storage::disk('public')->assertExists($speaker->photo);
 });
 
-it('cria um speaker com social_networks como string', function () {
+it('creates a speaker with social_networks as string', function () {
     $data = [
         'name' => 'Alice',
         'affiliation' => 'Acme',
@@ -59,7 +59,7 @@ it('cria um speaker com social_networks como string', function () {
         ->and($speaker->social_networks)->toContain('twitter');
 });
 
-it('cria um speaker sem social_networks', function () {
+it('creates a speaker without social_networks', function () {
     $data = [
         'name' => 'Bob',
         'affiliation' => 'Acme',
@@ -73,7 +73,7 @@ it('cria um speaker sem social_networks', function () {
     expect($speaker->social_networks)->toBeNull();
 });
 
-it('cria um speaker sem foto', function () {
+it('creates a speaker without photo', function () {
     $data = [
         'name' => 'Eve',
         'affiliation' => 'Acme',
@@ -86,3 +86,4 @@ it('cria um speaker sem foto', function () {
 
     expect($speaker->photo)->toBeNull();
 });
+

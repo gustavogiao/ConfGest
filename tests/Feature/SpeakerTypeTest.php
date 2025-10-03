@@ -6,12 +6,12 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(RefreshDatabase::class);
 
-it('cria um speaker type', function () {
+it('creates a speaker type', function () {
     $type = SpeakerType::factory()->create(['description' => 'Keynote']);
     expect(SpeakerType::find($type->id)->description)->toBe('Keynote');
 });
 
-it('relaciona speakers ao speaker type', function () {
+it('relates speakers to speaker type', function () {
     $type = SpeakerType::factory()->create();
     $speaker = Speaker::factory()->create(['speaker_type_id' => $type->id]);
     expect($type->speakers)->toHaveCount(1);

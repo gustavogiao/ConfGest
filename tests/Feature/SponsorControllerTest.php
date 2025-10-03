@@ -17,7 +17,7 @@ beforeEach(function () {
     $this->actingAs($user);
 });
 
-it('cria um sponsor', function () {
+it('creates a sponsor', function () {
     $data = [
         'name' => 'Patrocinador Teste',
         'category' => 'Bronze',
@@ -30,7 +30,7 @@ it('cria um sponsor', function () {
     $this->assertDatabaseHas('sponsors', ['name' => 'Patrocinador Teste']);
 });
 
-it('lista sponsors', function () {
+it('lists sponsors', function () {
     Sponsor::factory()->count(3)->create();
 
     $response = $this->get(route('admin.sponsors.index'));
@@ -39,7 +39,7 @@ it('lista sponsors', function () {
     $response->assertViewIs('admin.sponsors.index');
 });
 
-it('visualiza um sponsor', function () {
+it('shows a sponsor', function () {
     $sponsor = Sponsor::factory()->create();
 
     $response = $this->get(route('admin.sponsors.show', $sponsor));
@@ -49,14 +49,14 @@ it('visualiza um sponsor', function () {
     $response->assertViewHas('sponsor', $sponsor);
 });
 
-it('mostra formulário de criação de sponsor', function () {
+it('shows sponsor creation form', function () {
     $response = $this->get(route('admin.sponsors.create'));
     $response->assertOk();
     $response->assertViewIs('admin.sponsors.create');
     $response->assertViewHas('ranks');
 });
 
-it('mostra formulário de edição de sponsor', function () {
+it('shows sponsor edit form', function () {
     $sponsor = Sponsor::factory()->create();
     $response = $this->get(route('admin.sponsors.edit', $sponsor));
     $response->assertOk();
@@ -65,7 +65,7 @@ it('mostra formulário de edição de sponsor', function () {
     $response->assertViewHas('ranks');
 });
 
-it('atualiza um sponsor', function () {
+it('updates a sponsor', function () {
     $sponsor = Sponsor::factory()->create();
     $data = ['name' => 'Novo Nome', 'category' => $sponsor->category, 'is_active' => $sponsor->is_active];
 
@@ -75,7 +75,7 @@ it('atualiza um sponsor', function () {
     $this->assertDatabaseHas('sponsors', ['name' => 'Novo Nome']);
 });
 
-it('apaga um sponsor', function () {
+it('deletes a sponsor', function () {
     $sponsor = Sponsor::factory()->create();
 
     $response = $this->delete(route('admin.sponsors.destroy', $sponsor));
@@ -84,7 +84,7 @@ it('apaga um sponsor', function () {
     $this->assertSoftDeleted('sponsors', ['id' => $sponsor->id]);
 });
 
-it('retorna conferences do sponsor', function () {
+it('returns sponsor conferences', function () {
     $sponsor = Sponsor::factory()->create();
     $conference = Conference::factory()->create();
     $sponsor->conferences()->attach($conference->id);

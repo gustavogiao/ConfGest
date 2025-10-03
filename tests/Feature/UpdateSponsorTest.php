@@ -10,7 +10,7 @@ beforeEach(function () {
     Storage::fake('public');
 });
 
-it('atualiza sponsor normalmente', function () {
+it('updates sponsor normally', function () {
     $sponsor = Sponsor::factory()->create();
     $data = [
         'name' => 'Novo Nome',
@@ -21,7 +21,7 @@ it('atualiza sponsor normalmente', function () {
     expect($updated->name)->toBe('Novo Nome');
 });
 
-it('atualiza sponsor com nova logo e deleta antiga', function () {
+it('updates sponsor with new logo and deletes old one', function () {
     $oldLogo = UploadedFile::fake()->image('old.jpg')->store('sponsors', 'public');
     $sponsor = Sponsor::factory()->create(['logo' => $oldLogo]);
     $newFile = UploadedFile::fake()->image('new.jpg');
@@ -34,7 +34,7 @@ it('atualiza sponsor com nova logo e deleta antiga', function () {
         ->and(Storage::disk('public')->exists($oldLogo))->toBeFalse();
 });
 
-it('atualiza sponsor sem logo', function () {
+it('updates sponsor without logo', function () {
     $sponsor = Sponsor::factory()->create(['logo' => null]);
     $data = ['name' => 'Sem Logo'];
     $request = Request::create('/', 'POST', $data);

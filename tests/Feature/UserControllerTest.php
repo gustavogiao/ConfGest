@@ -15,21 +15,21 @@ beforeEach(function () {
     $this->actingAs($this->user);
 });
 
-it('lista usuários', function () {
+it('lists users', function () {
     User::factory()->count(2)->create(['user_type_id' => $this->user->user_type_id]);
     $this->get(route('admin.users.index'))
         ->assertStatus(200)
         ->assertViewIs('admin.users.index');
 });
 
-it('mostra formulário de criação', function () {
+it('shows user creation form', function () {
     $this->get(route('admin.users.create'))
         ->assertStatus(200)
         ->assertViewIs('admin.users.create')
         ->assertViewHas('userTypes');
 });
 
-it('cria usuário', function () {
+it('creates a user', function () {
     $type = UserType::factory()->create();
     $data = [
         'firstname' => 'Novo',
@@ -47,7 +47,7 @@ it('cria usuário', function () {
     expect(User::where('email', 'novo@teste.com')->exists())->toBeTrue();
 });
 
-it('mostra detalhes do usuário', function () {
+it('shows user details', function () {
     $user = User::factory()->create(['user_type_id' => $this->user->user_type_id]);
     $this->get(route('admin.users.show', $user))
         ->assertStatus(200)
@@ -55,7 +55,7 @@ it('mostra detalhes do usuário', function () {
         ->assertViewHas('user', $user);
 });
 
-it('mostra formulário de edição', function () {
+it('shows user edit form', function () {
     $user = User::factory()->create(['user_type_id' => $this->user->user_type_id]);
     $this->get(route('admin.users.edit', $user))
         ->assertStatus(200)
@@ -64,7 +64,7 @@ it('mostra formulário de edição', function () {
         ->assertViewHas('userTypes');
 });
 
-it('atualiza usuário', function () {
+it('updates a user', function () {
     $type = UserType::factory()->create();
     $user = User::factory()->create(['firstname' => 'Antigo', 'user_type_id' => $type->id, 'is_active' => false]);
     $data = [
@@ -75,10 +75,10 @@ it('atualiza usuário', function () {
         ->assertRedirect(route('admin.users.index'));
     expect($user->fresh()->is_active)->toBeTrue();
     expect($user->fresh()->user_type_id)->toBe($type->id);
-    expect($user->fresh()->firstname)->toBe('Antigo'); // Não muda
+    expect($user->fresh()->firstname)->toBe('Antigo'); // Does not change
 });
 
-it('deleta usuário', function () {
+it('deletes a user', function () {
     $user = User::factory()->create(['user_type_id' => $this->user->user_type_id]);
     $this->delete(route('admin.users.destroy', $user))
         ->assertRedirect(route('admin.users.index'));

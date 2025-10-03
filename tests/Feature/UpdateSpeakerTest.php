@@ -12,7 +12,7 @@ beforeEach(function () {
     SpeakerType::factory()->create(['id' => 1]);
 });
 
-it('atualiza speaker normalmente', function () {
+it('updates speaker normally', function () {
     $speaker = Speaker::factory()->create(['speaker_type_id' => 1]);
     $data = [
         'name' => 'Novo Nome',
@@ -27,7 +27,7 @@ it('atualiza speaker normalmente', function () {
         ->and($updated->is_active)->toBeFalse();
 });
 
-it('atualiza speaker com nova foto e deleta antiga', function () {
+it('updates speaker with new photo and deletes old one', function () {
     $oldPhoto = UploadedFile::fake()->image('old.jpg')->store('speakers', 'public');
     $speaker = Speaker::factory()->create([
         'photo' => $oldPhoto,
@@ -43,7 +43,7 @@ it('atualiza speaker com nova foto e deleta antiga', function () {
         ->and(Storage::disk('public')->exists($oldPhoto))->toBeFalse();
 });
 
-it('atualiza speaker com social_networks como string', function () {
+it('updates speaker with social_networks as string', function () {
     $speaker = Speaker::factory()->create(['speaker_type_id' => 1]);
     $data = [
         'social_networks' => 'twitter, linkedin',
@@ -55,7 +55,7 @@ it('atualiza speaker com social_networks como string', function () {
         ->and($updated->social_networks)->toContain('twitter');
 });
 
-it('atualiza speaker sem foto', function () {
+it('updates speaker without photo', function () {
     $speaker = Speaker::factory()->create(['speaker_type_id' => 1, 'photo' => null]);
     $data = ['name' => 'Sem Foto'];
     $request = Request::create('/', 'POST', $data);
@@ -64,7 +64,7 @@ it('atualiza speaker sem foto', function () {
     expect($updated->photo)->toBeNull();
 });
 
-it('atualiza speaker sem social_networks', function () {
+it('updates speaker without social_networks', function () {
     $speaker = Speaker::factory()->create(['speaker_type_id' => 1, 'social_networks' => null]);
     $data = ['name' => 'Sem Social'];
     $request = Request::create('/', 'POST', $data);

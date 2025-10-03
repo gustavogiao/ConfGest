@@ -9,8 +9,8 @@ beforeEach(function () {
     SpeakerType::factory()->create(['id' => 1]);
 });
 
-it('filtra conferências pelo nome ou acrônimo', function () {
-    // Cria conferências com speakers e sponsors
+it('filters conferences by name or acronym', function () {
+
     $conference1 = Conference::factory()->hasSpeakers(1)->hasSponsors(1)->create([
         'name' => 'Laravel Conf',
         'acronym' => 'LARACON',
@@ -24,7 +24,6 @@ it('filtra conferências pelo nome ou acrônimo', function () {
         'acronym' => 'VUEJS',
     ]);
 
-    // Pesquisa por "PHP"
     $request = Request::create('/', 'GET', ['search' => 'PHP']);
     $result = (new FilterConferences)->handle($request);
 

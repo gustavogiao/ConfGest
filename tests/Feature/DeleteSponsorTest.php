@@ -9,7 +9,7 @@ beforeEach(function () {
     Storage::fake('public');
 });
 
-it('deleta sponsor e logo', function () {
+it('deletes sponsor and logo', function () {
     $logo = UploadedFile::fake()->image('logo.jpg')->store('sponsors', 'public');
     $sponsor = Sponsor::factory()->create(['logo' => $logo]);
     expect(Storage::disk('public')->exists($logo))->toBeTrue();
@@ -20,7 +20,7 @@ it('deleta sponsor e logo', function () {
     expect(Storage::disk('public')->exists($logo))->toBeFalse();
 });
 
-it('deleta sponsor sem logo', function () {
+it('deletes sponsor without logo', function () {
     $sponsor = Sponsor::factory()->create(['logo' => null]);
     (new DeleteSponsor)->handle($sponsor);
 

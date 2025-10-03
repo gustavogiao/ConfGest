@@ -17,7 +17,7 @@ beforeEach(function () {
     $this->actingAs($this->user);
 });
 
-it('lista palestrantes', function () {
+it('lists speakers', function () {
     $type = SpeakerType::factory()->create();
     Speaker::factory()->count(2)->create(['speaker_type_id' => $type->id]);
     $this->get(route('admin.speakers.index'))
@@ -25,7 +25,7 @@ it('lista palestrantes', function () {
         ->assertViewIs('admin.speakers.index');
 });
 
-it('cria palestrante', function () {
+it('creates speaker', function () {
     $type = SpeakerType::factory()->create();
     $data = [
         'name' => 'Fulano',
@@ -42,7 +42,7 @@ it('cria palestrante', function () {
     expect(Speaker::where('name', 'Fulano')->exists())->toBeTrue();
 });
 
-it('mostra detalhes do palestrante', function () {
+it('shows speaker details', function () {
     $type = SpeakerType::factory()->create();
     $speaker = Speaker::factory()->create(['speaker_type_id' => $type->id]);
     $this->get(route('admin.speakers.show', $speaker))
@@ -51,13 +51,13 @@ it('mostra detalhes do palestrante', function () {
         ->assertViewHas('speaker', $speaker);
 });
 
-it('mostra formulário de criação', function () {
+it('shows create form', function () {
     $this->get(route('admin.speakers.create'))
         ->assertStatus(200)
         ->assertViewIs('admin.speakers.create');
 });
 
-it('mostra formulário de edição', function () {
+it('shows edit form', function () {
     $type = SpeakerType::factory()->create();
     $speaker = Speaker::factory()->create(['speaker_type_id' => $type->id]);
     $this->get(route('admin.speakers.edit', $speaker))
@@ -65,7 +65,7 @@ it('mostra formulário de edição', function () {
         ->assertViewIs('admin.speakers.edit');
 });
 
-it('atualiza palestrante', function () {
+it('updates speaker', function () {
     $type = SpeakerType::factory()->create();
     $speaker = Speaker::factory()->create(['name' => 'Antigo', 'speaker_type_id' => $type->id]);
     $data = [
@@ -83,7 +83,7 @@ it('atualiza palestrante', function () {
     expect($speaker->fresh()->name)->toBe('Novo');
 });
 
-it('deleta palestrante', function () {
+it('deletes speaker', function () {
     $type = SpeakerType::factory()->create();
     $speaker = Speaker::factory()->create(['speaker_type_id' => $type->id]);
     $this->delete(route('admin.speakers.destroy', $speaker))

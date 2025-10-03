@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(RefreshDatabase::class);
 
-it('relaciona participants ao conference', function () {
+it('relates participants to conference', function () {
     $userType = UserType::factory()->create();
     $conference = Conference::factory()->create();
     $user = User::factory()->create(['user_type_id' => $userType->id]);
@@ -17,8 +17,9 @@ it('relaciona participants ao conference', function () {
     expect($conference->participants->first()->pivot->registration_date)->not->toBeNull();
 });
 
-it('faz cast correto de conference_date', function () {
+it('casts conference_date correctly', function () {
     $conference = Conference::factory()->create(['conference_date' => '2024-07-01']);
     expect($conference->conference_date)->toBeInstanceOf(\Illuminate\Support\Carbon::class);
     expect($conference->conference_date->format('Y-m-d'))->toBe('2024-07-01');
 });
+

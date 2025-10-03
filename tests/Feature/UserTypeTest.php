@@ -6,12 +6,12 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(RefreshDatabase::class);
 
-it('cria um user type', function () {
+it('creates a user type', function () {
     $type = UserType::factory()->create(['description' => 'Speaker']);
     expect(UserType::find($type->id)->description)->toBe('Speaker');
 });
 
-it('relaciona users ao user type', function () {
+it('relates users to user type', function () {
     $type = UserType::factory()->create();
     $user = User::factory()->create(['user_type_id' => $type->id]);
     expect($type->users)->toHaveCount(1);

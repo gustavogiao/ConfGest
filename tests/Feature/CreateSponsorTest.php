@@ -9,7 +9,7 @@ beforeEach(function () {
     Storage::fake('public');
 });
 
-it('cria sponsor normalmente', function () {
+it('creates a sponsor normally', function () {
     $data = [
         'name' => 'Empresa X',
         'website' => 'https://empresax.com',
@@ -21,7 +21,7 @@ it('cria sponsor normalmente', function () {
         ->and($sponsor->logo)->toBeNull();
 });
 
-it('cria sponsor com logo', function () {
+it('creates a sponsor with logo', function () {
     $data = [
         'name' => 'Empresa Y',
         'website' => 'https://empresay.com',
@@ -34,7 +34,7 @@ it('cria sponsor com logo', function () {
         ->and(Storage::disk('public')->exists($sponsor->logo))->toBeTrue();
 });
 
-it('cria sponsor sem logo', function () {
+it('creates a sponsor without logo', function () {
     $data = [
         'name' => 'Empresa Z',
         'website' => 'https://empresaz.com',
@@ -44,3 +44,4 @@ it('cria sponsor sem logo', function () {
 
     expect($sponsor->logo)->toBeNull();
 });
+

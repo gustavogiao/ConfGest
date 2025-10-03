@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(RefreshDatabase::class);
 
-it('exibe conferências futuras e passadas do utilizador', function () {
+it('shows user upcoming and past conferences', function () {
     $userType = UserType::factory()->create();
     $user = User::factory()->create(['user_type_id' => $userType->id]);
 
@@ -31,7 +31,7 @@ it('exibe conferências futuras e passadas do utilizador', function () {
         });
 });
 
-it('exibe detalhes da conferência', function () {
+it('shows conference details', function () {
     $userType = UserType::factory()->create();
     $user = User::factory()->create(['user_type_id' => $userType->id]);
     $conference = Conference::factory()->create();

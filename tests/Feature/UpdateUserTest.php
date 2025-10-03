@@ -5,7 +5,7 @@ use App\Models\User;
 use App\Models\UserType;
 use Illuminate\Support\Facades\Hash;
 
-it('atualiza user normalmente', function () {
+it('updates user normally', function () {
     $userType = UserType::factory()->create();
     $user = User::factory()->create(['user_type_id' => $userType->id]);
     $data = [
@@ -18,7 +18,7 @@ it('atualiza user normalmente', function () {
         ->and($updated->email)->toBe('novo@email.com');
 });
 
-it('atualiza user com nova senha criptografada', function () {
+it('updates user with new encrypted password', function () {
     $userType = UserType::factory()->create();
     $user = User::factory()->create([
         'user_type_id' => $userType->id,
