@@ -1,5 +1,8 @@
 # ConfGest
-## ConfGest é uma aplicação web desenvolvida em Laravel para gestão de conferências.
+ConfGest é uma aplicação web desenvolvida em Laravel para gestão de conferências, muito simples, com o intuito de se perceber um pouco mais sobre laravel e a sua arquitetura MVC.
+Para além da base da resolução das fichas iniciais da UC, introduzi a parte de testes com PEST com a garantia de 95% de coverage; garanti a utilização de form request's e actions nos controladores, para garantir o máximo de clean code, uso de tailwind.css para algo mais moderno e elegante. 
+
+Basicamente trata-se de uma ficha de CRUD de conferências, com sponsors e speakers que o Admin pode gerir. O utilizador vê as conferências existentes e pode adicionar uma conferência à sua lista de idas. 
 
 # Requisitos
 PHP >= 8.1
