@@ -86,4 +86,3 @@ it('creates a speaker without photo', function () {
 
     expect($speaker->photo)->toBeNull();
 });
-

@@ -88,4 +88,3 @@ it('deletes conference', function () {
         ->assertRedirect(route('admin.conferences.index'));
     expect(Conference::find($conference->id))->toBeNull();
 });
-

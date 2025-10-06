@@ -133,21 +133,21 @@ php artisan test --coverage
 php artisan test --coverage --coverage-html=coverage
 ``` 
 
-## **💖 Using Pink**
+## **💖 Using Pint**
 
 ### Install Pink
 ```bash
-composer require pestphp/pink --dev
+composer require laravel/pint --dev
 ```
 
 ### Run Pink
 ```bash
-php ./vendor/bin/pink
+php ./vendor/bin/pint
 ```
 
 ### Run tests with Pink
 ```bash
-php artisan test --pink
+php artisan test --pint
 ```
 
 # 🧼 Useful Commands

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Actions\Conference\CreateConference;
+use App\Actions\Conference\DeleteConference;
+use App\Actions\Conference\UpdateConference;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Conference\ConferenceRequest;
 use App\Models\Conference;
@@ -36,18 +39,9 @@ class ConferenceController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ConferenceRequest $request)
+    public function store(ConferenceRequest $request, CreateConference $action)
     {
-        $data = $request->validated();
-        $conference = Conference::create($data);
-
-        if (isset($data['speakers'])) {
-            $conference->speakers()->sync($data['speakers']);
-        }
-
-        if (isset($data['sponsors'])) {
-            $conference->sponsors()->sync($data['sponsors']);
-        }
+        $action->handle($request->validated());
 
         return redirect()->route('admin.conferences.index')
             ->with('success', 'Conference created successfully.');
@@ -78,22 +72,9 @@ class ConferenceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(ConferenceRequest $request, Conference $conference)
+    public function update(ConferenceRequest $request, Conference $conference, UpdateConference $action)
     {
-        $data = $request->validated();
-        $conference->update($data);
-
-        if (isset($data['speakers'])) {
-            $conference->speakers()->sync($data['speakers']);
-        } else {
-            $conference->speakers()->detach();
-        }
-
-        if (isset($data['sponsors'])) {
-            $conference->sponsors()->sync($data['sponsors']);
-        } else {
-            $conference->sponsors()->detach();
-        }
+        $action->handle($conference, $request);
 
         return redirect()->route('admin.conferences.index')
             ->with('success', 'Conference updated successfully.');
@@ -103,9 +84,9 @@ class ConferenceController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Conference $conference)
+    public function destroy(Conference $conference, DeleteConference $action)
     {
-        $conference->delete();
+        $action->handle($conference);
 
         return redirect()->route('admin.conferences.index')
             ->with('success', 'Conference deleted successfully.');

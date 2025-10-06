@@ -22,4 +22,3 @@ it('casts conference_date correctly', function () {
     expect($conference->conference_date)->toBeInstanceOf(\Illuminate\Support\Carbon::class);
     expect($conference->conference_date->format('Y-m-d'))->toBe('2024-07-01');
 });
-

@@ -44,4 +44,3 @@ it('creates a sponsor without logo', function () {
 
     expect($sponsor->logo)->toBeNull();
 });
-
