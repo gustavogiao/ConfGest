@@ -5,7 +5,7 @@ namespace App\Actions\User;
 use App\Models\User;
 use Lorisleiva\Actions\Concerns\AsAction;
 
-class UpdateUser
+final readonly class UpdateUser
 {
     use AsAction;
 

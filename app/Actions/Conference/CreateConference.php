@@ -5,7 +5,7 @@ namespace App\Actions\Conference;
 use App\Models\Conference;
 use Lorisleiva\Actions\Concerns\AsAction;
 
-class CreateConference
+final readonly class CreateConference
 {
     use AsAction;
 

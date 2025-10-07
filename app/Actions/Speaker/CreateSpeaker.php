@@ -6,7 +6,7 @@ use App\Models\Speaker;
 use Illuminate\Http\Request;
 use Lorisleiva\Actions\Concerns\AsAction;
 
-class CreateSpeaker
+final readonly class CreateSpeaker
 {
     use AsAction;
 

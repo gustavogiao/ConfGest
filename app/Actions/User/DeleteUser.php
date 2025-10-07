@@ -5,7 +5,7 @@ namespace App\Actions\User;
 use App\Models\User;
 use Lorisleiva\Actions\Concerns\AsAction;
 
-class DeleteUser
+final readonly class DeleteUser
 {
     use AsAction;
 

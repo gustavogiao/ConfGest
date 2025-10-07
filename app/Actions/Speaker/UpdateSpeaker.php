@@ -4,9 +4,10 @@ namespace App\Actions\Speaker;
 
 use App\Models\Speaker;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Lorisleiva\Actions\Concerns\AsAction;
 
-class UpdateSpeaker
+final readonly class UpdateSpeaker
 {
     use AsAction;
 
@@ -14,7 +15,7 @@ class UpdateSpeaker
     {
         if ($request->hasFile('photo')) {
             if ($speaker->photo) {
-                \Storage::disk('public')->delete($speaker->photo);
+                Storage::disk('public')->delete($speaker->photo);
             }
             $data['photo'] = $request->file('photo')->store('speakers', 'public');
         }

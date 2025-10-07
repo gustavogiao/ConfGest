@@ -5,7 +5,7 @@ namespace App\Actions\Conference;
 use App\Models\Conference;
 use Lorisleiva\Actions\Concerns\AsAction;
 
-class DeleteConference
+final readonly class DeleteConference
 {
     use AsAction;
 

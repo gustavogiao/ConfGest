@@ -6,7 +6,7 @@ use App\Models\Sponsor;
 use Illuminate\Http\Request;
 use Lorisleiva\Actions\Concerns\AsAction;
 
-class CreateSponsor
+final readonly class CreateSponsor
 {
     use AsAction;
 

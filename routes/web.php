@@ -26,8 +26,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::post('/conferences/{conference}/register', [RegistrationController::class, 'store'])
-    ->middleware('auth')->name('conference.register');
+Route::middleware('log.requests')->group(function () {
+    Route::post('/conferences/{conference}/register', [RegistrationController::class, 'store'])
+        ->middleware('auth')->name('conference.register');
+});
 
 Route::delete('/conferences/{conference}/register', [RegistrationController::class, 'destroy'])
     ->middleware('auth')->name('conference.unregister');

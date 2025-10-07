@@ -6,7 +6,7 @@ use App\Models\Conference;
 use Illuminate\Http\Request;
 use Lorisleiva\Actions\Concerns\AsAction;
 
-class FilterConferences
+final readonly class FilterConferences
 {
     use AsAction;
 

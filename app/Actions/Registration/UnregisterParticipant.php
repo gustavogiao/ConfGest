@@ -5,7 +5,7 @@ namespace App\Actions\Registration;
 use App\Models\Conference;
 use Lorisleiva\Actions\Concerns\AsAction;
 
-class UnregisterParticipant
+final readonly class UnregisterParticipant
 {
     use AsAction;
 

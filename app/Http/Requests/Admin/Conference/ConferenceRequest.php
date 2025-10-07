@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin\Conference;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\DB;
 
 class ConferenceRequest extends FormRequest
 {
@@ -26,7 +27,7 @@ class ConferenceRequest extends FormRequest
                 'exists:speakers,id',
                 function ($attribute, $value, $fail) use ($conferenceId) {
                     $conferenceDate = $this->input('conference_date');
-                    $exists = \DB::table('conf_speakers')
+                    $exists = DB::table('conf_speakers')
                         ->join('conferences', 'conferences.id', '=', 'conf_speakers.conference_id')
                         ->where('conf_speakers.speaker_id', $value)
                         ->where('conferences.conference_date', $conferenceDate)

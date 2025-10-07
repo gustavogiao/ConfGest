@@ -4,7 +4,7 @@ namespace App\Actions\Conference;
 
 use App\Models\Conference;
 
-class LoadConferenceRelations
+final readonly class LoadConferenceRelations
 {
     public function handle(Conference $conference): Conference
     {

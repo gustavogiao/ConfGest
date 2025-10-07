@@ -150,6 +150,16 @@ php ./vendor/bin/pint
 php artisan test --pint
 ```
 
+## **Using PHPStan**
+### Install PHPStan
+```bash
+composer require --dev phpstan/phpstan
+```
+### Run PHPStan
+```bash
+php vendor/bin/phpstan analyse app/
+```
+
 # 🧼 Useful Commands
 ```bash
 php artisan cache:clear
