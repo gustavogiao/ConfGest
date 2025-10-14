@@ -1,25 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="text-xl text-white">
-            <i class="fas fa-microphone-alt"></i> Speakers Management
-        </h2>
+        <x-conference-header :title="__('Admin - Create Speaker')" subtitle="Manage all conferences, add new ones, edit or delete existing speakers." />
     </x-slot>
 
     <div class="py-8">
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6">
-                <div class="flex justify-between mb-4">
-                    <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-100">Speakers List</h3>
-                    <a href="{{ route('admin.speakers.create') }}" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">
-                        <i class="fas fa-plus"></i> Add New Speaker
-                    </a>
-                </div>
+                <x-page-header :title="'Speakers List'" :route="route('admin.speakers.create')" button="Add New Speaker" />
 
-                @if(session('success'))
-                    <div class="mb-4 p-3 bg-green-100 text-green-800 rounded">
-                        {{ session('success') }}
-                    </div>
-                @endif
+                <x-success-message />
 
                 <table class="min-w-full border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden">
                     <thead class="bg-gray-100 dark:bg-gray-700">

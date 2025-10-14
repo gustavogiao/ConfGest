@@ -1,4 +1,5 @@
 import './bootstrap';
+import './conference-filters.js'
 
 import Alpine from 'alpinejs';
 

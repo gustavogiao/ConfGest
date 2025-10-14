@@ -23,7 +23,7 @@ final readonly class FilterConferences
             });
         }
 
-        return $query->paginate(10);
+        return $query->paginate(3);
 
     }
 }

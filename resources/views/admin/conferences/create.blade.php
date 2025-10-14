@@ -1,8 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="text-xl text-indigo-600 dark:text-indigo-400 leading-tight">
-            <i class="fas fa-plus-circle"></i> Create Conference
-        </h2>
+        <x-conference-header :title="__('Admin - Create Conference')" subtitle="Fill in the details below to create a new conference." />
     </x-slot>
 
     <div class="py-8">
