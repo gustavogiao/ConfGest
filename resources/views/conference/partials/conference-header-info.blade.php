@@ -1,10 +1,10 @@
-<x-conference-header :title="$conference->acronym" :subtitle="$conference->name">
+<x-header :title="$conference->acronym" :subtitle="$conference->name">
     <div class="flex items-center gap-4">
-        <a href="{{ request('from') === 'my' ? route('my.conferences') : route('conference.index') }}"
+        <a href="{{ request('from') === 'admin' ? route('admin.conferences.index') : (request('from') === 'my' ? route('my.conferences') : route('conference.index')) }}"
            class="inline-flex items-center gap-2 px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-100 transition">
             <i class="fa-solid fa-arrow-left"></i> Back
         </a>
-        @auth
+    @auth
             @php
                 $isRegistered = $conference->participants->contains(auth()->id());
                 $isAdmin = auth()->user()->type->description === 'Admin';
@@ -33,4 +33,4 @@
             @endif
         @endauth
     </div>
-</x-conference-header>
+</x-header>

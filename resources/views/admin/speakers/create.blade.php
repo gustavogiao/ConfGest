@@ -1,8 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="text-xl text-indigo-600 dark:text-indigo-400 leading-tight">
-            <i class="fas fa-plus-circle"></i> Create Speaker
-        </h2>
+        <x-header :title="__('Admin - Create Speaker')" subtitle="Fill in the details below to create a new speaker." />
     </x-slot>
 
     <div class="py-8">

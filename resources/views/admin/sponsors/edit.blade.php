@@ -1,8 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="text-xl text-indigo-600 dark:text-indigo-400 leading-tight">
-            <i class="fas fa-edit"></i> Edit Sponsor: {{ $sponsor->name }}
-        </h2>
+        <x-header :title="__('Admin - Edit Sponsor')" subtitle="Edit a sponsor to the conference." />
     </x-slot>
 
     <div class="py-8">

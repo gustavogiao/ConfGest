@@ -1,8 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="text-xl text-indigo-600 dark:text-indigo-400 leading-tight">
-            <i class="fas fa-edit"></i> Edit Speaker: {{ $speaker->name }}
-        </h2>
+        <x-header :title="__('Admin - Edit Speaker')" subtitle="Fill in the details below to update the speaker." />
     </x-slot>
 
     <div class="py-8">
