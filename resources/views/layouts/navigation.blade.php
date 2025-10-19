@@ -14,14 +14,14 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     @if(Auth::check())
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                            {{ __('Dashboard') }}
+                            {{ __('dashboard.dashboard') }}
                         </x-nav-link>
                         <x-nav-link :href="route('my.conferences')" :active="request()->routeIs('my.conferences')">
-                            {{ __('My Conferences') }}
+                            {{ __('dashboard.my_conferences') }}
                         </x-nav-link>
                     @endif
                     <x-nav-link :href="route('conference.index')" :active="request()->routeIs('conference.index')">
-                        {{ __('Conferences') }}
+                        {{ __('conference.conferences') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -78,14 +78,14 @@
         <div class="pt-2 pb-3 space-y-1">
             @if(Auth::check())
                 <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                    {{ __('Dashboard') }}
+                    {{ __('dashboard.dashboard') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('my.conferences')" :active="request()->routeIs('my.conferences')">
-                    {{ __('My Conferences') }}
+                    {{ __('dashboard.my_conferences') }}
                 </x-responsive-nav-link>
             @endif
             <x-responsive-nav-link :href="route('conference.index')" :active="request()->routeIs('conference.index')">
-                {{ __('Conferences') }}
+                {{ __('conference.conferences') }}
             </x-responsive-nav-link>
         </div>
 
